@@ -11,10 +11,11 @@
 @layer base {
   html {
     scroll-behavior: initial; /* Lenis handles smooth scroll */
+    background-color: #050505 !important;
   }
   
   body {
-    background-color: #050505;
+    background-color: #050505 !important;
     color: #ffffff;
     font-family: var(--font-sans), 'Inter', sans-serif;
     overflow-x: hidden;
