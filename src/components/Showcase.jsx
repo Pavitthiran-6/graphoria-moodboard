@@ -11,17 +11,17 @@ const Showcase = () => {
     if (!tiltCardRef.current) return;
     const card = tiltCardRef.current;
     const rect = card.getBoundingClientRect();
-    
+
     // Mouse coords relative to card
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     // Center point of card
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     // Calculate rotation limits (e.g., max 15 degrees)
-    const rotateX = ((centerY - y) / centerY) * 12; 
+    const rotateX = ((centerY - y) / centerY) * 12;
     const rotateY = ((x - centerX) / centerX) * 12;
 
     setTiltStyle({
@@ -83,7 +83,7 @@ const Showcase = () => {
 
       {/* Tiers Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-        
+
         {/* Card 1: Modern Style - Glass Lift & Glow Border */}
         <div className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02]">
           {/* Tag Badge */}
@@ -100,15 +100,15 @@ const Showcase = () => {
               {tiers[0].title}
             </h3>
             <p className="text-xs font-semibold text-white/40 mb-4">{tiers[0].subtitle}</p>
-            
+
             {/* Price */}
             <div className="mb-6 flex items-baseline gap-1">
               <span className="font-display font-black text-4xl text-white">{tiers[0].price}</span>
               <span className="text-xs text-white/40">/ project</span>
             </div>
-            
+
             <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{tiers[0].description}</p>
-            
+
             {/* Features */}
             <ul className="space-y-3.5 mb-8">
               {tiers[0].features.map((feature, i) => (
@@ -124,7 +124,7 @@ const Showcase = () => {
 
           {/* Action CTA */}
           <a
-            href="https://share.google/Hq0S5NqZ5BgEtJGLg"
+            href="https://www.magnific.com/free-photos-vectors/food-website-design"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-display font-semibold text-sm transition-all duration-300 group-hover:bg-brand-green group-hover:text-brand-black group-hover:border-brand-green group-hover:shadow-neon-glow"
@@ -135,7 +135,7 @@ const Showcase = () => {
         </div>
 
         {/* Card 2: Professional Style - 3D Tilt & Parallax */}
-        <div 
+        <div
           ref={tiltCardRef}
           onMouseMove={handleMouseMove3D}
           onMouseLeave={handleMouseLeave3D}
@@ -149,7 +149,7 @@ const Showcase = () => {
 
           <div>
             {/* Parallax Icon Wrapper */}
-            <div 
+            <div
               style={{ transform: `translate3d(${parallaxOffset.x * 0.5}px, ${parallaxOffset.y * 0.5}px, 0)` }}
               className="w-12 h-12 rounded-xl bg-brand-green/10 border border-brand-green/30 flex items-center justify-center mb-6 transition-all duration-300 group-hover:border-brand-green group-hover:shadow-neon-glow"
             >
@@ -165,16 +165,16 @@ const Showcase = () => {
             </div>
 
             {/* Price Parallax */}
-            <div 
+            <div
               style={{ transform: `translate3d(${parallaxOffset.x * 0.4}px, ${parallaxOffset.y * 0.4}px, 0)` }}
               className="mb-6 flex items-baseline gap-1"
             >
               <span className="font-display font-black text-4xl text-white text-glow">{tiers[1].price}</span>
               <span className="text-xs text-white/40">/ project</span>
             </div>
-            
+
             <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{tiers[1].description}</p>
-            
+
             {/* Features List */}
             <ul className="space-y-3.5 mb-8">
               {tiers[1].features.map((feature, i) => (
@@ -190,7 +190,7 @@ const Showcase = () => {
 
           {/* Action CTA with internal 3D glow shift */}
           <a
-            href="https://locomotive.ca/en"
+            href="https://wildgrain.com/"
             target="_blank"
             rel="noopener noreferrer"
             style={{ transform: `translate3d(${parallaxOffset.x * 0.2}px, ${parallaxOffset.y * 0.2}px, 0)` }}
@@ -220,15 +220,15 @@ const Showcase = () => {
               {tiers[2].title}
             </h3>
             <p className="text-xs font-semibold text-white/40 mb-4">{tiers[2].subtitle}</p>
-            
+
             {/* Price */}
             <div className="mb-6 flex items-baseline gap-1">
               <span className="font-display font-black text-4xl text-white">{tiers[2].price}</span>
               <span className="text-xs text-white/40">/ starting</span>
             </div>
-            
+
             <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{tiers[2].description}</p>
-            
+
             {/* Features */}
             <ul className="space-y-3.5 mb-8">
               {tiers[2].features.map((feature, i) => (
