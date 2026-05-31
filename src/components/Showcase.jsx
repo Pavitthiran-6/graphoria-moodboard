@@ -124,7 +124,7 @@ const Showcase = () => {
 
           {/* Action CTA */}
           <a
-            href="https://mavren-loai.onrender.com/"
+            href="https://share.google/Hq0S5NqZ5BgEtJGLg"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-display font-semibold text-sm transition-all duration-300 group-hover:bg-brand-green group-hover:text-brand-black group-hover:border-brand-green group-hover:shadow-neon-glow"
@@ -244,7 +244,7 @@ const Showcase = () => {
 
           {/* Action CTA */}
           <a
-            href="https://w2c-studios.onrender.com"
+            href="https://www.landing.love/categories/food-drink/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-display font-semibold text-sm transition-all duration-300 group-hover:bg-brand-green group-hover:text-brand-black group-hover:border-brand-green group-hover:shadow-neon-glow"
