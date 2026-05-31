@@ -1,6 +1,5 @@
 import FlowArt, { FlowSection } from './story-scroll';
 import Showcase from '../Showcase';
-import { Cpu, Sparkles, Layers, ArrowUpRight } from 'lucide-react';
 
 export default function FlowArtDefaultDemo() {
   return (
@@ -212,81 +211,8 @@ export default function FlowArtDefaultDemo() {
         </div>
       </FlowSection>
 
-      <FlowSection 
-        aria-label="Custom Requirements" 
-        style={{ backgroundColor: '#0f0525', color: '#fff' }}
-      >
-        <div id="custom-requirements" className="absolute top-0 left-0 w-full h-1" />
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">05 — Custom Requirements</p>
-        <hr className="my-[2vw] border-none border-t border-white/10" />
-        <div>
-          <h2
-            className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight text-white"
-          >
-            Bespoke
-            <br />
-            Solutions
-          </h2>
-        </div>
-        <hr className="my-[2vw] border-none border-t border-white/10" />
-        <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed opacity-90">
-          Have an extraordinary design vision or complex engineering challenge? We architect tailored platforms engineered to perform and built to scale.
-        </p>
-        <hr className="my-[2vw] border-none border-t border-white/10" />
-        
-        <div className="flex flex-wrap gap-[2vw] w-full">
-          <div className="min-w-[240px] flex-1 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-emerald-400/30 transition-all duration-300">
-            <Cpu className="w-8 h-8 text-emerald-400 mb-4" />
-            <p className="mb-2 text-lg font-bold uppercase tracking-wider text-white">AI & Web3 Engineering</p>
-            <p className="text-sm leading-relaxed opacity-70">
-              Custom intelligence agents, smart contracts, decentralized apps, and complex backend models tailored specifically for your operational stack.
-            </p>
-          </div>
-          
-          <div className="min-w-[240px] flex-1 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-emerald-400/30 transition-all duration-300">
-            <Sparkles className="w-8 h-8 text-emerald-400 mb-4" />
-            <p className="mb-2 text-lg font-bold uppercase tracking-wider text-white">Immersive WebGL & 3D</p>
-            <p className="text-sm leading-relaxed opacity-70">
-              Story-driven 3D scenes, fully customized shaders, real-time physically based renderings, and high-performance WebGL animations.
-            </p>
-          </div>
-          
-          <div className="min-w-[240px] flex-1 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:border-emerald-400/30 transition-all duration-300">
-            <Layers className="w-8 h-8 text-emerald-400 mb-4" />
-            <p className="mb-2 text-lg font-bold uppercase tracking-wider text-white">Enterprise Systems</p>
-            <p className="text-sm leading-relaxed opacity-70">
-              Bespoke CRM integrations, lightning-fast Headless CMS setups, highly secure payments systems, and multi-tenant SaaS structures.
-            </p>
-          </div>
-        </div>
-        
-        <hr className="my-[2vw] border-none border-t border-white/10" />
-        
-        <div className="flex flex-wrap items-center justify-between gap-4 mt-auto">
-          <p className="text-xs opacity-60 max-w-[45ch]">
-            Let&apos;s build an interactive system uniquely mapped to your brand&apos;s digital roadmap and visual aspirations.
-          </p>
-          <a
-            href="#contact-section"
-            onClick={(e) => {
-              e.preventDefault();
-              if (window.lenis) {
-                window.lenis.scrollTo('#contact-section', { duration: 1.2 });
-              } else {
-                document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 text-white font-semibold text-sm hover:bg-emerald-400 hover:text-black transition-all duration-300 border border-white/10 hover:border-emerald-400 shadow-[0_0_20px_rgba(255,255,255,0.02)] hover:shadow-neon-glow"
-          >
-            <span>Request Bespoke Pitch</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
-        </div>
-      </FlowSection>
-
       <FlowSection aria-label="Nous rejoindre" style={{ backgroundColor: '#fd5200', color: '#fff' }}>
-        <div id="contact-section" className="absolute top-0 left-0 w-full h-1" />
-        <p className="text-xs font-bold uppercase tracking-[0.2em]">06 — Get In Touch</p>
+        <p className="text-xs font-bold uppercase tracking-[0.2em]">05 — Get In Touch</p>
         <hr className="my-[2vw] border-none border-t border-white/20" />
         <div>
           <h2
