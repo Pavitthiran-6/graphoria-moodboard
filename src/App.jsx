@@ -15,6 +15,8 @@ function App() {
       touchMultiplier: 1.5,
     });
 
+    window.lenis = lenis;
+
     const raf = (time) => {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -24,6 +26,7 @@ function App() {
 
     return () => {
       lenis.destroy();
+      window.lenis = null;
     };
   }, []);
 

@@ -263,7 +263,15 @@ const Showcase = () => {
           Have custom features or complex enterprise requirements? We design tailored solutions specifically structured for your scaling needs, custom integrations, and branding systems.
         </p>
         <a
-          href="#contact"
+          href="#custom-requirements"
+          onClick={(e) => {
+            e.preventDefault();
+            if (window.lenis) {
+              window.lenis.scrollTo('#custom-requirements', { duration: 1.5 });
+            } else {
+              document.getElementById('custom-requirements')?.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
           className="inline-flex items-center gap-1.5 text-brand-green hover:text-white transition-colors duration-300 font-semibold text-sm border-b border-brand-green/30 pb-0.5 hover:border-white"
         >
           <span>Discuss Custom Requirements</span>
