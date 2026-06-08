@@ -451,7 +451,7 @@ export default function ServicePage() {
     <div className="bg-[#050505] text-white min-h-screen w-full relative">
       
       {/* Absolute Back Button floating over FlowArt */}
-      <div className="absolute top-6 left-6 z-50">
+      <div className="absolute top-4 left-4 md:top-6 md:left-6 z-50">
         <button
           onClick={() => navigateWithTransition('/')}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all duration-300 font-medium text-xs backdrop-blur-md"
@@ -468,7 +468,7 @@ export default function ServicePage() {
           aria-label="Service Introduction"
           style={{ backgroundColor: sectionBgs.hero, color: '#ffffff' }}
         >
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-2 mb-4 mt-14 md:mt-0">
             <span className="w-2 h-2 rounded-full" style={{ backgroundColor: `rgb(${data.glowColor})` }} />
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">01 — Service Details</p>
           </div>
