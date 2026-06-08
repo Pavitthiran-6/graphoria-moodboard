@@ -1,0 +1,10 @@
+services:
+  - type: static
+    name: graphoria-moodboard
+    buildCommand: npm ci && npm run build
+    publishPath: ./dist
+    routes:
+      # Rewrite all routing paths to index.html so React Router handles the views
+      - type: rewrite
+        source: /*
+        destination: /index.html
