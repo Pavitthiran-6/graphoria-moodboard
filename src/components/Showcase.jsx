@@ -1,5 +1,7 @@
-import React, { useRef, useState } from 'react';
-import { Check, ArrowUpRight, Layout, Scroll, Clapperboard } from 'lucide-react';
+import React, { useRef, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Check, ArrowUpRight, Layout, Scroll, Bell } from 'lucide-react';
+import { PageTransitionContext } from '../App';
 
 /* ─────────────────────────────────────────
    Jumping-letter component
@@ -32,6 +34,7 @@ const JumpText = ({ text, active, className = '' }) => (
 /* ────────────────────────────────────────────────── */
 
 const Showcase = () => {
+  const { navigateWithTransition } = useContext(PageTransitionContext);
   /* Professional 3D tilt (card 2) */
   const tiltCardRef = useRef(null);
   const [tiltStyle, setTiltStyle] = useState({
@@ -60,52 +63,55 @@ const Showcase = () => {
     setParallaxOffset({ x: 0, y: 0 });
   };
 
-  /* Animation-card hover state (for jump trigger) */
-  const [animCardHovered, setAnimCardHovered] = useState(false);
 
   const tiers = [
     {
       id: 'modern',
-      title: 'Modern Style',
+      title: 'Startup Launch Package',
       subtitle: 'Website + Mobile App',
-      price: '₹45,000',
+      price: '₹80,000',
       description:
-        'Clean layouts tailored for agile startups wanting high speed and visual excellence.',
-      features: ['Minimal Design', 'Fast Performance', 'Modern UI', 'Startup Friendly'],
+        'Perfect for startups and growing businesses looking for a strong digital presence with essential branding and marketing assets.',
+      features: ['Standard Logo Design', 'Basic Packaging Design', '10 Social Media Creatives', 'Mobile Responsive Design', 'Basic SEO Setup'],
       icon: <Layout className="w-5 h-5 text-white" />,
       tag: 'Startup Friendly',
     },
     {
       id: 'professional',
-      title: 'Professional Style',
+      title: 'Business Growth Package',
       subtitle: 'Website + Mobile App',
-      price: '₹60,000',
+      price: '₹1,20,000',
       description:
-        'Sophisticated brand frameworks and advanced UX structures for scaled firms.',
+        'Designed for businesses ready to scale with premium branding, enhanced user experience, and higher-quality digital assets.',
       features: [
-        'Premium Design System',
-        'Advanced UX',
-        'Brand Identity',
-        'Professional Animations',
+        'Premium Logo Design',
+        'Premium Packaging Design',
+        '20 Social Media Creatives',
+        'Advanced UI/UX Experience',
+        'Enhanced SEO Setup',
+        'Priority Support',
+        'Performance Optimization',
+        'Conversion-Focused Design',
+        'Brand Consistency Review',
       ],
       icon: <Scroll className="w-5 h-5 text-white" />,
       tag: 'Best Value',
     },
     {
-      id: 'animation',
-      title: 'Animation Style',
-      subtitle: 'Website + Mobile App',
-      price: '₹75,000+',
+      id: 'alert',
+      title: 'Custom Quote',
+      subtitle: 'Tailored to Your Needs',
+      price: 'Let\'s Talk',
       description:
-        'Cinematic storytelling with bespoke fluid interactions, custom shaders, and rich motion graphics.',
+        'Have a unique vision that doesn\'t fit a standard tier? We build fully bespoke digital experiences scoped precisely around your requirements.',
       features: [
-        'Premium Motion Design',
-        'Storytelling Experience',
-        'Advanced Interactions',
-        'Luxury Brand Feel',
+        'Scoped to Your Project',
+        'Flexible Deliverables',
+        'Direct Founder Access',
+        'Priority Turnaround',
       ],
-      icon: <Clapperboard className="w-5 h-5 text-white" />,
-      tag: 'Cinematic',
+      icon: <Bell className="w-5 h-5 text-white" />,
+      tag: 'Get In Touch',
     },
   ];
 
@@ -161,6 +167,10 @@ const Showcase = () => {
           90%  { transform: rotate(20deg);  }
           100% { transform: rotate(0deg);   }
         }
+        @keyframes cardFadeUp {
+          from { opacity: 0; transform: translateY(24px); }
+          to   { opacity: 1; transform: translateY(0);    }
+        }
       `}</style>
 
       {/* Decorative blur */}
@@ -184,8 +194,37 @@ const Showcase = () => {
               <span className="font-display font-black text-4xl text-white">{tiers[0].price}</span>
               <span className="text-xs text-white/40">/ project</span>
             </div>
-            <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{tiers[0].description}</p>
-            <ul className="space-y-3.5 mb-8">
+            <p className="text-sm text-white/50 leading-relaxed font-light mb-6">{tiers[0].description}</p>
+
+            {/* Package breakdown */}
+            <div className="mb-6 rounded-xl border border-white/8 bg-white/[0.03] overflow-hidden">
+              <p className="px-4 pt-3 pb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">Package Includes</p>
+              <div className="px-4 pb-2 space-y-2">
+                {[
+                  { label: 'Website & Mobile App Development', price: '₹50,000' },
+                  { label: 'Standard Logo Design',             price: '₹10,000' },
+                  { label: 'Basic Packaging Design',           price: '₹12,000' },
+                  { label: 'Business Stationeries',            price: '₹3,000'  },
+                  { label: 'Social Media Poster Design (10×)', price: '₹10,000' },
+                ].map(({ label, price }) => (
+                  <div key={label} className="flex items-center justify-between">
+                    <span className="text-xs text-white/45 font-light">{label}</span>
+                    <span className="text-xs text-white/55 font-semibold font-display tabular-nums">{price}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mx-4 h-[1px] bg-white/8 my-2" />
+              <div className="px-4 pb-2 flex items-center justify-between">
+                <span className="text-xs text-white/40 font-light">Individual Total</span>
+                <span className="text-xs text-white/50 font-semibold font-display line-through tabular-nums">₹85,000</span>
+              </div>
+              <div className="px-4 pb-3 flex items-center justify-between">
+                <span className="text-xs font-bold text-white/70 uppercase tracking-wider">You Save</span>
+                <span className="text-xs font-black font-display text-white">₹5,000</span>
+              </div>
+            </div>
+
+            <ul className="space-y-3.5">
               {tiers[0].features.map((feature, i) => (
                 <li key={i} className="flex items-center gap-3 text-sm text-white/70">
                   <div className="w-4 h-4 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
@@ -196,15 +235,6 @@ const Showcase = () => {
               ))}
             </ul>
           </div>
-          <a
-            href="https://www.magnific.com/free-photos-vectors/food-website-design"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-display font-semibold text-sm transition-all duration-300 group-hover:bg-white group-hover:text-brand-black group-hover:border-white group-hover:shadow-neon-glow"
-          >
-            <span>Explore Modern Tier</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
         </div>
 
         {/* ══ Card 2: Professional Style — 3D Tilt ══ */}
@@ -236,8 +266,37 @@ const Showcase = () => {
               <span className="font-display font-black text-4xl text-white text-glow">{tiers[1].price}</span>
               <span className="text-xs text-white/40">/ project</span>
             </div>
-            <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{tiers[1].description}</p>
-            <ul className="space-y-3.5 mb-8">
+            <p className="text-sm text-white/50 leading-relaxed font-light mb-6">{tiers[1].description}</p>
+
+            {/* Package breakdown */}
+            <div className="mb-6 rounded-xl border border-white/10 bg-white/[0.04] overflow-hidden">
+              <p className="px-4 pt-3 pb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Package Includes</p>
+              <div className="px-4 pb-2 space-y-2">
+                {[
+                  { label: 'Website & Mobile App Development', price: '₹65,000' },
+                  { label: 'Premium Logo Design',              price: '₹20,000' },
+                  { label: 'Premium Packaging Design',         price: '₹30,000' },
+                  { label: 'Business Stationeries',            price: '₹5,000'  },
+                  { label: 'Social Media Poster Design (20×)', price: '₹15,000' },
+                ].map(({ label, price }) => (
+                  <div key={label} className="flex items-center justify-between">
+                    <span className="text-xs text-white/50 font-light">{label}</span>
+                    <span className="text-xs text-white/65 font-semibold font-display tabular-nums">{price}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mx-4 h-[1px] bg-white/10 my-2" />
+              <div className="px-4 pb-2 flex items-center justify-between">
+                <span className="text-xs text-white/45 font-light">Individual Total</span>
+                <span className="text-xs text-white/55 font-semibold font-display line-through tabular-nums">₹1,35,000</span>
+              </div>
+              <div className="px-4 pb-3 flex items-center justify-between">
+                <span className="text-xs font-bold text-white uppercase tracking-wider">You Save</span>
+                <span className="text-xs font-black font-display text-white text-glow">₹15,000</span>
+              </div>
+            </div>
+
+            <ul className="space-y-3.5">
               {tiers[1].features.map((feature, i) => (
                 <li key={i} className="flex items-center gap-3 text-sm text-white/70">
                   <div className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
@@ -248,135 +307,193 @@ const Showcase = () => {
               ))}
             </ul>
           </div>
-          <a
-            href="https://wildgrain.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ transform: `translate3d(${parallaxOffset.x * 0.2}px, ${parallaxOffset.y * 0.2}px, 0)` }}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-brand-black border border-white font-display font-bold text-sm transition-all duration-300 hover:shadow-neon-glow-strong"
-          >
-            <span>Build Professional</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </a>
         </div>
 
-        {/* ══ Card 3: Animation Style — hover-activated jump letters ══ */}
-        <div
-          className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left overflow-hidden"
-          style={{ animation: 'glowPulse 3s ease-in-out infinite' }}
-          onMouseEnter={() => setAnimCardHovered(true)}
-          onMouseLeave={() => setAnimCardHovered(false)}
-        >
-          {/* Tag badge — pops gently */}
-          <div
-            className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-[10px] text-white/70 tracking-wider font-semibold uppercase"
-            style={{ animation: animCardHovered ? 'tagPop 1.6s ease-in-out infinite' : 'none' }}
-          >
+        {/* ══ Card 3: Custom Quote — alert style ══ */}
+        <div className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02]">
+          <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-white/60 tracking-wider font-semibold uppercase">
             {tiers[2].tag}
           </div>
 
           <div>
-            {/* Icon with pulse rings — only on hover */}
-            <div className="relative inline-flex mb-6">
-              <div
-                style={{
-                  animation: animCardHovered
-                    ? 'rollingCar 2s cubic-bezier(0.45,0,0.55,1) infinite'
-                    : 'none',
-                }}
-              >
-                <Clapperboard
-                  className="w-6 h-6 text-white"
-                  style={{
-                    animation: animCardHovered
-                      ? 'wheelSpin 2s cubic-bezier(0.45,0,0.55,1) infinite'
-                      : 'none',
-                  }}
-                />
-              </div>
+            <div className="mb-6">
+              {tiers[2].icon}
             </div>
-
-            {/* ── Jumping title (hover only) ── */}
-            <div className="mb-1 overflow-hidden">
-              <JumpText
-                text="Animation Style"
-                active={animCardHovered}
-                className="font-display font-black text-2xl text-white"
-              />
-            </div>
-
+            <h3 className="font-display font-black text-2xl text-white mb-1">{tiers[2].title}</h3>
             <p className="text-xs font-semibold text-white/40 mb-4">{tiers[2].subtitle}</p>
-
-            {/* Shimmer price on hover */}
             <div className="mb-6 flex items-baseline gap-1">
-              <span
-                className="font-display font-black text-4xl"
-                style={
-                  animCardHovered
-                    ? {
-                        background:
-                          'linear-gradient(90deg,#fff 0%,#999 40%,#fff 60%,#999 100%)',
-                        backgroundSize: '200% auto',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        animation: 'shimmerBar 2s linear infinite',
-                      }
-                    : { color: '#fff' }
-                }
-              >
-                {tiers[2].price}
-              </span>
-              <span className="text-xs text-white/40">/ starting</span>
+              <span className="font-display font-black text-4xl text-white">{tiers[2].price}</span>
             </div>
 
-            <p className="text-sm text-white/50 leading-relaxed font-light mb-8">
-              {tiers[2].description}
-            </p>
+            {/* Alert notice banner */}
+            <div className="mb-6 flex items-start gap-3 px-4 py-3 rounded-xl border border-white/10 bg-white/[0.04]">
+              <Bell className="w-4 h-4 text-white/50 flex-shrink-0 mt-0.5" />
+              <p className="text-xs text-white/50 leading-relaxed font-light">
+                This tier is scoped after a discovery call. Pricing and timeline are defined
+                collaboratively based on your exact requirements.
+              </p>
+            </div>
 
-            {/* Feature list — slide in on hover */}
+            <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{tiers[2].description}</p>
             <ul className="space-y-3.5 mb-8">
               {tiers[2].features.map((feature, i) => (
-                <li
-                  key={i}
-                  className="flex items-center gap-3 text-sm text-white/80"
-                  style={
-                    animCardHovered
-                      ? {
-                          animation: 'featureSlidein 0.5s ease both',
-                          animationDelay: `${i * 0.1}s`,
-                        }
-                      : {}
-                  }
-                >
+                <li key={i} className="flex items-center gap-3 text-sm text-white/70">
                   <div className="w-4 h-4 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-2.5 h-2.5 text-white" />
-                    </div>
+                    <Check className="w-2.5 h-2.5 text-white" />
+                  </div>
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* CTA — jumping text on hover, shimmer sweep */}
           <a
-            href="https://www.landing.love/categories/food-drink/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-display font-bold text-sm overflow-hidden transition-all duration-300 group-hover:bg-white group-hover:text-brand-black group-hover:border-white group-hover:shadow-neon-glow"
+            href="mailto:graphoriacreativitydesign@gmail.com"
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-display font-semibold text-sm transition-all duration-300 group-hover:bg-white group-hover:text-brand-black group-hover:border-white group-hover:shadow-neon-glow"
           >
-            {/* shimmer sweep on hover */}
-            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-            <JumpText text="Commission Cinema" active={animCardHovered} className="relative z-10" />
-            <ArrowUpRight
-              className="w-4 h-4 relative z-10"
-              style={{ animation: animCardHovered ? 'floatIcon 1.5s ease-in-out infinite' : 'none' }}
-            />
+            <span>Request a Quote</span>
+            <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
 
       </div>
 
-      {/* Footnote */}
+      {/* ══════════════════════════════════════════
+          ADDITIONAL SERVICES
+      ══════════════════════════════════════════ */}
+      <div className="mt-20 w-full">
+
+        {/* Section header */}
+        <div className="mb-12 text-center">
+          <div className="inline-flex items-center gap-2 mb-5">
+            <div className="w-6 h-[1px] bg-white/25" />
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
+              Individual Services
+            </p>
+            <div className="w-6 h-[1px] bg-white/25" />
+          </div>
+          <h3 className="font-display font-black text-3xl md:text-4xl text-white mb-4 leading-tight">
+            Individual Services
+          </h3>
+          <p className="font-sans text-white/50 text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto">
+            Standalone creative, branding, animation, and development services available individually
+            or as part of a complete project.
+          </p>
+      </div>
+
+      {/* Services grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {[
+          {
+            idx: 0,
+            emoji: '✦',
+            title: 'Logo Design',
+            price: '₹10,000 – ₹30,000',
+            desc: 'Professional logo creation and brand identity development.',
+            path: '/services/logo-design',
+            glowHex: '#a855f7'
+          },
+          {
+            idx: 1,
+            emoji: '⬡',
+            title: 'Packaging Design',
+            price: '₹5,000 – ₹40,000',
+            desc: 'Creative product packaging designed for strong brand presence.',
+            path: '/services/packaging-design',
+            glowHex: '#f97316'
+          },
+          {
+            idx: 2,
+            emoji: '◈',
+            title: 'Business Stationeries',
+            price: '₹1,000 – ₹10,000',
+            desc: 'Business cards, letterheads, invoices, envelopes, and corporate materials.',
+            path: '/services/business-stationeries',
+            glowHex: '#3b82f6'
+          },
+          {
+            idx: 3,
+            emoji: '◎',
+            title: 'Social Media Poster Design',
+            price: '₹500 – ₹1,500 per post',
+            desc: 'Marketing creatives and promotional designs for social platforms.',
+            path: '/services/social-media-design',
+            glowHex: '#ec4899'
+          },
+          {
+            idx: 4,
+            emoji: '◬',
+            title: '3D Animation',
+            price: '₹30,000 – ₹1,00,000',
+            desc: 'High-quality 3D animation for products, brands, and promotional content.',
+            path: '/services/3d-animation',
+            glowHex: '#06b6d4'
+          },
+          {
+            idx: 5,
+            emoji: '⬙',
+            title: 'Product Advertisement Animation',
+            price: '₹30,000 – ₹80,000',
+            desc: 'Motion graphics and advertising videos designed to increase engagement.',
+            path: '/services/product-ad-animation',
+            glowHex: '#ef4444'
+          },
+          {
+            idx: 6,
+            emoji: '⬡',
+            title: 'Website & Mobile App Development',
+            price: '₹50,000 – ₹1,00,000+',
+            desc: 'Custom web and mobile applications built with modern technologies.',
+            path: '/services/web-mobile-development',
+            glowHex: '#ffffff'
+          },
+        ].map(({ idx, emoji, title, price, desc, path, glowHex }) => (
+          <div
+            key={idx}
+            onClick={() => navigateWithTransition(path, glowHex)}
+            className="group relative flex flex-col p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02] cursor-pointer"
+            style={{
+              animation: `cardFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both`,
+              animationDelay: `${idx * 0.07}s`,
+            }}
+          >
+            {/* Decorative symbol */}
+            <div className="mb-5 text-white/20 text-xl font-light select-none leading-none">
+              {emoji}
+            </div>
+
+            {/* Title */}
+            <h4 className="font-display font-bold text-lg text-white mb-2 leading-snug">
+              {title}
+            </h4>
+
+            {/* Price */}
+            <p
+              className="font-display font-black text-base mb-4 leading-tight"
+              style={{
+                background: 'linear-gradient(90deg,#fff 0%,rgba(255,255,255,0.55) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              {price}
+            </p>
+
+            {/* Divider */}
+            <div className="w-full h-[1px] bg-white/8 mb-4" />
+
+            {/* Description */}
+            <p className="font-sans text-sm text-white/50 leading-relaxed font-light flex-1">
+              {desc}
+            </p>
+
+            {/* Bottom glow line on hover */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-white/50 rounded-full transition-all duration-500 group-hover:w-2/3" />
+          </div>
+        ))}
+      </div>
+    </div>
       <div className="mt-16 max-w-2xl mx-auto flex flex-col items-center">
         <div className="w-12 h-[1px] bg-white/20 mb-6" />
         <p className="font-sans text-white/50 text-sm md:text-base font-light leading-relaxed mb-4 text-center">

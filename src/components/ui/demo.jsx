@@ -23,11 +23,11 @@ export default function FlowArtDefaultDemo() {
         </div>
         <hr className="my-[2vw] border-none border-t border-white/30" />
         <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-          Crafting exceptional web experiences and cutting-edge mobile applications. We merge highly aesthetic design with robust, high-performance development to bring your brand&apos;s digital vision to life.
+          Crafting powerful brand identities, stunning digital experiences, and high-performance applications. From logo design and packaging to social media creatives, 3D animation, and full-stack web & mobile development — we bring every dimension of your brand to life.
         </p>
         <hr className="my-[2vw] border-none border-t border-white/30" />
         <p className="max-w-[50ch] text-[clamp(0.85rem,1.8vw,1.35rem)] font-normal leading-relaxed opacity-80">
-          Curated and directed by our principal design lead. Explore my creative background, featured case studies, and design philosophies.
+          Curated and directed by our principal design lead. Explore our creative background, featured case studies, and end-to-end service capabilities across branding, motion, and technology.
         </p>
         <hr className="my-[2vw] border-none border-t border-white/30" />
         <div className="flex">
@@ -68,14 +68,14 @@ export default function FlowArtDefaultDemo() {
           <h2
             className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
           >
-            Design
+            Brand
             <br />
-            Narratives
+            Packages
           </h2>
         </div>
         <hr className="my-[2vw] border-none border-t border-white/20" />
         <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-          We craft immersive visual journeys. Select the tier that matches your studio strategy and interactive aspirations.
+          Complete branding and digital packages crafted for every stage of business growth — from startup launch to full-scale brand expansion.
         </p>
         <hr className="my-[2vw] border-none border-t border-white/20" />
         <Showcase />
@@ -88,58 +88,58 @@ export default function FlowArtDefaultDemo() {
           <h2
             className="text-[clamp(3.5rem,12vw,14rem)] font-bold leading-[0.85] uppercase tracking-tight"
           >
-            Design.
+            Brand.
             <br />
-            Code.
+            Build.
             <br />
-            Launch.
+            Animate.
             <br />
             Scale.
           </h2>
         </div>
         <hr className="my-[2vw] border-none border-t border-black/60" />
         <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-          From aesthetic moodboards to high-performance production code, we deliver flawless digital experiences.
+          From logo conception and packaging design to social media creatives, 3D animation, and full-stack digital products — we deliver a complete creative ecosystem for your brand.
         </p>
         <hr className="my-[2vw] border-none border-t border-black/60" />
         <div className="flex flex-wrap gap-[3vw]">
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">01 — Moodboard & UI</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">01 — Logo Design</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Defining color palettes, custom typography, and visual assets to establish a unique digital identity.
+              Crafting iconic brand marks, wordmarks, and complete visual identity systems that make a lasting impression.
             </p>
           </div>
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">02 — UX Architecture</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">02 — Packaging Design</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Mapping user pathways and crafting ultra-intuitive wireframes that optimize user engagement.
+              Designing product packaging that commands shelf presence and communicates your brand story at first glance.
             </p>
           </div>
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">03 — Web Development</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">03 — Business Stationeries</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Building lightweight, lightning-fast, and fully responsive websites using bleeding-edge stacks.
+              Business cards, letterheads, invoices, envelopes, and branded corporate collateral for a cohesive identity.
             </p>
           </div>
         </div>
         <hr className="my-[2vw] border-none border-t border-black/60" />
         <div className="flex flex-wrap gap-[3vw]">
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">04 — Mobile Apps</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">04 — Social Media Design</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Developing stunning, sleek, and high-performance native iOS and Android applications.
+              High-impact marketing creatives and promotional poster designs crafted to grow engagement across all platforms.
             </p>
           </div>
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">05 — Fluid Interaction</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">05 — 3D & Ad Animation</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Integrating premium micro-animations and motion design to make your products feel alive.
+              Premium 3D animation and motion graphics for product showcases, brand films, and advertising campaigns.
             </p>
           </div>
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">06 — Optimization</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">06 — Web & App Development</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Providing deep performance auditing, SEO structuring, and cloud scaling for global reach.
+              Building lightning-fast, fully responsive websites and high-performance native iOS & Android mobile applications.
             </p>
           </div>
         </div>
@@ -156,19 +156,19 @@ export default function FlowArtDefaultDemo() {
             <br />
             Of
             <br />
-            Design
+            Brand
           </h2>
         </div>
         <hr className="my-[2vw] border-none border-t border-white/50" />
         <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-          We are not just designing products. We are crafting the future of modern digital interaction.
+          We are not just building products. We are crafting complete brand universes — identities, experiences, and stories that resonate across every touchpoint.
         </p>
         <hr className="my-[2vw] border-none border-t border-white/50" />
         <div className="flex flex-wrap gap-[3vw]">
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">150+</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">500+</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              High-performance web and mobile solutions successfully designed & launched.
+              Creative deliverables across branding, packaging, digital, and motion successfully completed.
             </p>
           </div>
           <div className="min-w-[180px] flex-1">
@@ -180,32 +180,32 @@ export default function FlowArtDefaultDemo() {
           <div className="min-w-[180px] flex-1">
             <p className="mb-2 text-sm font-bold uppercase tracking-wider">10M+</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Monthly active users engaging with user interfaces designed by our agency.
+              Monthly active users engaging with interfaces, creatives, and products designed by our studio.
             </p>
           </div>
         </div>
         <hr className="my-[2vw] border-none border-t border-white/50" />
         <p className="max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-          Standard templates do not move audiences. Slow performance loses modern users. We are here to change that — building custom, ultra-fast, and premium web & app solutions.
+          Generic templates do not build brands. Weak visuals lose customers. We are here to change that — delivering custom logos, packaging, creatives, animations, and premium digital experiences under one roof.
         </p>
         <hr className="my-[2vw] border-none border-t border-white/50" />
         <div className="flex flex-wrap gap-[3vw]">
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">Tailored Design</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">Full Brand Identity</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Bespoke visual research, interactive mockups, and identity guides built for your brand.
+              Logo, packaging, stationeries, and brand guidelines — every asset your business needs to look premium.
             </p>
           </div>
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">Bleeding-Edge Tech</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">Motion & Animation</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Supercharged search visibility, lightweight builds, and fluidly animated layouts.
+              3D product animations and advertising videos that drive engagement and boost conversion rates.
             </p>
           </div>
           <div className="min-w-[180px] flex-1">
-            <p className="mb-2 text-sm font-bold uppercase tracking-wider">Scale-Ready Build</p>
+            <p className="mb-2 text-sm font-bold uppercase tracking-wider">Digital Products</p>
             <p className="text-[clamp(0.85rem,1.3vw,1.05rem)] leading-relaxed opacity-75">
-              Engineered to handle scaling user traffic, continuous feature growth, and enterprise needs.
+              Scalable websites and mobile apps engineered for performance, growth, and exceptional user experience.
             </p>
           </div>
         </div>
@@ -227,7 +227,7 @@ export default function FlowArtDefaultDemo() {
         </div>
         <hr className="my-[2vw] border-none border-t border-white/20" />
         <p className="mt-auto max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-          Partner with us to redefine your brand&apos;s digital presence. Let&apos;s build something exceptional together.
+          Partner with us to build your complete brand identity — from logo and packaging to social media, animation, and a powerful digital presence. Let's create something exceptional together.
         </p>
       </FlowSection>
     </FlowArt>
