@@ -476,7 +476,7 @@ export default function ServicePage() {
           
           <div>
             <h1
-              className="text-[clamp(3.5rem,11vw,12rem)] font-bold leading-[0.85] uppercase tracking-tight font-display text-glow-custom"
+              className="text-[clamp(2.2rem,11vw,12rem)] md:text-[clamp(3.5rem,11vw,12rem)] font-bold leading-[0.85] uppercase tracking-tight font-display text-glow-custom"
               style={{
                 textShadow: `0 0 40px rgba(${data.glowColor}, 0.2)`
               }}
