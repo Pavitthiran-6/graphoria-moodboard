@@ -178,16 +178,12 @@ export default function PricingPage() {
       {/* Premium Header/Navbar */}
       <header className="w-full flex items-center justify-between border-b border-white/10 pb-6 mb-16 pt-2">
         {/* Brand Logo */}
-        <div 
-          onClick={() => navigateWithTransition('/')} 
-          className="flex items-center cursor-pointer group"
-        >
-          <img 
-            src="/logo.png" 
-            className="h-28 md:h-32 w-auto transition-transform duration-300 group-hover:scale-105" 
-            alt="Graphoria Logo" 
-          />
-        </div>
+        <img 
+          src="/logo.png" 
+          onClick={() => navigateWithTransition('/')}
+          className="h-28 md:h-32 w-auto cursor-pointer transition-transform duration-300 hover:scale-105" 
+          alt="Graphoria Logo" 
+        />
 
         {/* Back Button */}
         <button

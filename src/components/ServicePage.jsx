@@ -464,16 +464,12 @@ export default function ServicePage() {
         </button>
 
         {/* Logo Badge */}
-        <div 
+        <img 
+          src="/logo.png" 
           onClick={() => navigateWithTransition('/')}
-          className="flex items-center cursor-pointer group bg-black/30 backdrop-blur-md px-1.5 py-1.5 rounded-xl border border-white/5 shadow-lg transition-all duration-300 hover:border-white/10"
-        >
-          <img 
-            src="/logo.png" 
-            className="h-16 md:h-20 w-auto transition-transform duration-300 group-hover:scale-105" 
-            alt="Graphoria Logo" 
-          />
-        </div>
+          className="h-16 md:h-20 w-auto cursor-pointer transition-transform duration-300 hover:scale-105" 
+          alt="Graphoria Logo" 
+        />
       </div>
 
       <FlowArt aria-label={`${data.title.join(' ')} Showcase`}>
