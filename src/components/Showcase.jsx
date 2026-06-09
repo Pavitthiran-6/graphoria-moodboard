@@ -388,7 +388,7 @@ const Showcase = () => {
             idx: 0,
             emoji: '✦',
             title: 'Logo Design',
-            price: '₹10,000 – ₹30,000',
+            price: '₹3,000 – ₹10,000',
             desc: 'Professional logo creation and brand identity development.',
             path: '/services/logo-design',
             glowHex: '#a855f7'
@@ -397,7 +397,7 @@ const Showcase = () => {
             idx: 1,
             emoji: '⬡',
             title: 'Packaging Design',
-            price: '₹5,000 – ₹40,000',
+            price: '₹5,000 – ₹20,000',
             desc: 'Creative product packaging designed for strong brand presence.',
             path: '/services/packaging-design',
             glowHex: '#f97316'
@@ -406,7 +406,7 @@ const Showcase = () => {
             idx: 2,
             emoji: '◈',
             title: 'Business Stationeries',
-            price: '₹1,000 – ₹10,000',
+            price: '₹2,000 – ₹5,000',
             desc: 'Business cards, letterheads, invoices, envelopes, and corporate materials.',
             path: '/services/business-stationeries',
             glowHex: '#3b82f6'
@@ -424,7 +424,7 @@ const Showcase = () => {
             idx: 4,
             emoji: '◬',
             title: '3D Animation',
-            price: '₹30,000 – ₹1,00,000',
+            price: '₹55,000 – ₹85,000',
             desc: 'High-quality 3D animation for products, brands, and promotional content.',
             path: '/services/3d-animation',
             glowHex: '#06b6d4'
@@ -442,7 +442,7 @@ const Showcase = () => {
             idx: 6,
             emoji: '⬡',
             title: 'Website & Mobile App Development',
-            price: '₹50,000 – ₹1,00,000+',
+            price: '₹45,000 – ₹1,00,000+',
             desc: 'Custom web and mobile applications built with modern technologies.',
             path: '/services/web-mobile-development',
             glowHex: '#ffffff'

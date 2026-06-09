@@ -14,7 +14,7 @@ const serviceData = {
       {
         tag: 'Starter Logo Package',
         title: 'Starter Logo',
-        price: '₹12,000',
+        price: '₹3,000 – ₹10,000',
         subtitle: 'For new startups',
         description: 'Perfect for startups and emerging projects that need a professional brand mark to get started.',
         features: [
@@ -67,7 +67,7 @@ const serviceData = {
       {
         tag: 'Standard Packaging',
         title: 'Standard Package',
-        price: '₹16,000',
+        price: '₹5,000 – ₹20,000',
         subtitle: 'Single product launch',
         description: 'Professional visual design for a single product line, fully prepared for commercial print production.',
         features: [
@@ -118,7 +118,7 @@ const serviceData = {
       {
         tag: 'Essential Stationery Kit',
         title: 'Essential Kit',
-        price: '₹4,000',
+        price: '₹2,000 – ₹5,000',
         subtitle: 'Core brand touchpoints',
         description: 'Establish cohesive client touchpoints with clean, high-quality collateral for day-to-day operations.',
         features: [
@@ -169,7 +169,7 @@ const serviceData = {
       {
         tag: 'Starter Social Package',
         title: 'Starter Social',
-        price: '₹13,000',
+        price: '₹500 – ₹1,500 per post',
         subtitle: 'Essential feed designs',
         description: 'Launch your profiles with custom templates and clean visual compositions designed for initial engagement.',
         features: [
@@ -219,7 +219,7 @@ const serviceData = {
       {
         tag: 'Product Showcase Animation',
         title: 'Product Showcase',
-        price: '₹35,000',
+        price: '₹55,000 – ₹85,000',
         subtitle: 'High-fidelity render',
         description: 'Perfect for displaying complex physical designs, internal features, and initial brand presentations.',
         features: [
@@ -270,7 +270,7 @@ const serviceData = {
       {
         tag: 'Starter Ad Video',
         title: 'Starter Ad',
-        price: '₹40,000',
+        price: '₹30,000 – ₹80,000',
         subtitle: 'Social optimization',
         description: 'Dynamic visual cuts highlighting key features of your physical product. Perfect for digital distribution.',
         features: [
@@ -320,16 +320,17 @@ const serviceData = {
       {
         tag: 'Startup Launch Package',
         title: 'Startup Launch',
-        price: '₹50,000 +',
+        price: '₹45,000 +',
         subtitle: 'Complete starter system',
-        description: 'Complete digital ecosystem for launching your brand with professional web/app development and core branding.',
+        description: 'Professional, high-performance website and mobile application development to launch your digital presence.',
         features: [
-          'Website Development',
-          'Mobile App Development',
-          'Logo Design',
-          'Packaging Design',
-          'Business Stationeries',
-          '10 Social Media Creatives'
+          'Custom Website Development',
+          'Custom Mobile App Development',
+          'Fully Responsive Layouts',
+          'Standard UI/UX Design',
+          'Basic SEO Optimization',
+          '2 Revisions',
+          'Deployment & Support'
         ]
       },
       {
@@ -338,16 +339,17 @@ const serviceData = {
         price: '₹65,000 +',
         subtitle: 'Advanced product suite',
         highlighted: true,
-        description: 'Our flagship digital development plan including premium design assets, high-fidelity native app elements, and SEO growth kits.',
+        description: 'Our flagship digital development plan including high-fidelity custom design systems, native web/app elements, database scale-up, and SEO growth kits.',
         features: [
           'Premium Website Development',
           'Premium Mobile App Development',
-          'Premium Logo Design',
-          'Premium Packaging Design',
-          '20 Social Media Creatives',
-          'Advanced UI/UX',
-          'SEO Optimization',
-          'Priority Support'
+          'Advanced Custom UI/UX',
+          'Performance & Speed Tuning',
+          'Database Integration',
+          'Custom API Architectures',
+          'SEO Strategy & Analytics',
+          '3 Revisions',
+          'Priority 24/7 Support'
         ]
       },
       {
@@ -516,10 +518,12 @@ export default function ServicePage() {
             </div>
             <p className="text-[10px] font-semibold tracking-widest text-white/30 uppercase">Packages / Scopes</p>
           </div>
-          <hr className="my-[2vw] border-none border-t border-white/10" />
-
-          {/* Pricing grid - exactly matches homepage tier grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch w-full py-6 relative z-10">
+          {/* Pricing grid - 3 columns if website/app service, 2 centered columns otherwise */}
+          <div className={
+            serviceId === 'web-mobile-development' 
+              ? "grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch w-full py-6 relative z-10"
+              : "grid grid-cols-1 lg:grid-cols-2 max-w-5xl mx-auto gap-8 items-stretch w-full py-6 relative z-10"
+          }>
             
             {/* Dynamic decorative blur matching service accent */}
             <div 
@@ -538,10 +542,22 @@ export default function ServicePage() {
                 </div>
                 <h3 className="font-display font-black text-2xl text-white mb-1">{data.cards[0].title}</h3>
                 <p className="text-xs font-semibold text-white/40 mb-4">{data.cards[0].subtitle}</p>
-                <div className="mb-6 flex items-baseline gap-1">
-                  <span className="font-display font-black text-4xl text-white">{data.cards[0].price}</span>
-                  <span className="text-xs text-white/40">/ project</span>
+                
+                <div className="mb-6 flex flex-col justify-start">
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-display font-black text-3xl md:text-4xl text-white">{data.cards[0].price}</span>
+                    <span className="text-xs text-white/40">
+                      {serviceId === 'social-media-design' ? '' : '/ project'}
+                    </span>
+                  </div>
+                  {serviceId !== 'web-mobile-development' && data.cards[1] && (
+                    <div className="text-xs text-white/40 mt-1.5 flex items-center gap-1.5 flex-wrap">
+                      <span>Original Premium Value:</span>
+                      <span className="line-through font-semibold text-white/60">{data.cards[1].price}</span>
+                    </div>
+                  )}
                 </div>
+
                 <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{data.cards[0].description}</p>
                 
                 <ul className="space-y-3.5 mb-2">
@@ -553,70 +569,93 @@ export default function ServicePage() {
                       <span>{feature}</span>
                     </li>
                   ))}
+
+                  {serviceId !== 'web-mobile-development' && data.cards[1] && (
+                    <>
+                      <div className="my-4 border-t border-white/10 pt-4">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.15em]" style={{ color: `rgb(${data.glowColor})` }}>
+                          + Included Premium Features
+                        </p>
+                      </div>
+                      {data.cards[1].features
+                        .filter(f => !data.cards[0].features.includes(f))
+                        .map((feature, i) => (
+                          <li key={`prem-${i}`} className="flex items-center gap-3 text-sm text-white/90 font-medium">
+                            <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `rgba(${data.glowColor}, 0.2)` }}>
+                              <Check className="w-2.5 h-2.5" style={{ color: `rgb(${data.glowColor})` }} />
+                            </div>
+                            <span>{feature}</span>
+                          </li>
+                        ))
+                      }
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
 
-            {/* Card 2: Premium Package (Highlighted with accent glow and 3D tilt) */}
-            <div
-              ref={tiltCardRef}
-              onMouseMove={handleMouseMove3D}
-              onMouseLeave={handleMouseLeave3D}
-              style={{
-                ...tiltStyle,
-                borderColor: glowBorder,
-                boxShadow: `0 0 25px rgba(${data.glowColor}, 0.15)`
-              }}
-              className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-200 bg-brand-charcoal/30 border-2"
-            >
-              <div 
-                className="absolute top-6 right-6 px-3 py-1 rounded-full text-[10px] text-white tracking-wider font-semibold uppercase border"
+            {/* Card 2: Premium Package (Highlighted with accent glow and 3D tilt) - Keep only for Web & App Service */}
+            {serviceId === 'web-mobile-development' && (
+              <div
+                ref={tiltCardRef}
+                onMouseMove={handleMouseMove3D}
+                onMouseLeave={handleMouseLeave3D}
                 style={{
-                  backgroundColor: `rgba(${data.glowColor}, 0.2)`,
+                  ...tiltStyle,
                   borderColor: glowBorder,
-                  boxShadow: `0 0 10px rgba(${data.glowColor}, 0.2)`
+                  boxShadow: `0 0 25px rgba(${data.glowColor}, 0.15)`
                 }}
+                className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-200 bg-brand-charcoal/30 border-2"
               >
-                {data.cards[1].tag}
-              </div>
-              
-              <div>
-                <div
-                  style={{ transform: `translate3d(${parallaxOffset.x * 0.5}px, ${parallaxOffset.y * 0.5}px, 0)` }}
-                  className="mb-6 mt-2"
+                <div 
+                  className="absolute top-6 right-6 px-3 py-1 rounded-full text-[10px] text-white tracking-wider font-semibold uppercase border"
+                  style={{
+                    backgroundColor: `rgba(${data.glowColor}, 0.25)`,
+                    borderColor: glowBorder,
+                    boxShadow: `0 0 10px rgba(${data.glowColor}, 0.2)`
+                  }}
                 >
-                  <Scroll className="w-5 h-5" style={{ color: glowText }} />
+                  {data.cards[1].tag}
                 </div>
                 
-                <div style={{ transform: `translate3d(${parallaxOffset.x * 0.3}px, ${parallaxOffset.y * 0.3}px, 0)` }}>
-                  <h3 className="font-display font-black text-2xl text-white mb-1">{data.cards[1].title}</h3>
-                  <p className="text-xs font-semibold text-white/40 mb-4">{data.cards[1].subtitle}</p>
+                <div>
+                  <div
+                    style={{ transform: `translate3d(${parallaxOffset.x * 0.5}px, ${parallaxOffset.y * 0.5}px, 0)` }}
+                    className="mb-6 mt-2"
+                  >
+                    <Scroll className="w-5 h-5" style={{ color: glowText }} />
+                  </div>
+                  
+                  <div style={{ transform: `translate3d(${parallaxOffset.x * 0.3}px, ${parallaxOffset.y * 0.3}px, 0)` }}>
+                    <h3 className="font-display font-black text-2xl text-white mb-1">{data.cards[1].title}</h3>
+                    <p className="text-xs font-semibold text-white/40 mb-4">{data.cards[1].subtitle}</p>
+                  </div>
+                  
+                  <div
+                    style={{ transform: `translate3d(${parallaxOffset.x * 0.4}px, ${parallaxOffset.y * 0.4}px, 0)` }}
+                    className="mb-6 flex items-baseline gap-1"
+                  >
+                    <span className="font-display font-black text-4xl text-white text-glow" style={{ textShadow: `0 0 10px rgba(${data.glowColor}, 0.4)` }}>
+                      {data.cards[1].price}
+                    </span>
+                    <span className="text-xs text-white/40">/ project</span>
+                  </div>
+                  
+                  <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{data.cards[1].description}</p>
+                  
+                  <ul className="space-y-3.5 mb-2">
+                    {data.cards[1].features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-3 text-sm text-white/70">
+                        <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `rgba(${data.glowColor}, 0.25)` }}>
+                          <Check className="w-2.5 h-2.5 text-white" />
+                        </div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                
-                <div
-                  style={{ transform: `translate3d(${parallaxOffset.x * 0.4}px, ${parallaxOffset.y * 0.4}px, 0)` }}
-                  className="mb-6 flex items-baseline gap-1"
-                >
-                  <span className="font-display font-black text-4xl text-white text-glow" style={{ textShadow: `0 0 10px rgba(${data.glowColor}, 0.4)` }}>
-                    {data.cards[1].price}
-                  </span>
-                  <span className="text-xs text-white/40">/ project</span>
-                </div>
-                
-                <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{data.cards[1].description}</p>
-                
-                <ul className="space-y-3.5 mb-2">
-                  {data.cards[1].features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-white/70">
-                      <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `rgba(${data.glowColor}, 0.25)` }}>
-                        <Check className="w-2.5 h-2.5 text-white" />
-                      </div>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
-            </div>
+            )}
 
             {/* Card 3: Custom Quote */}
             <div className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02]">
