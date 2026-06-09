@@ -181,7 +181,7 @@ const Showcase = () => {
 
         {/* ══ Card 1: Modern Style ══ */}
         <div 
-          onClick={() => navigateWithTransition('/packages', '#ffffff')}
+          onClick={() => navigateWithTransition('/pricing', '#ffffff')}
           className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02] cursor-pointer"
         >
           <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-white/60 tracking-wider font-semibold uppercase">
@@ -252,7 +252,7 @@ const Showcase = () => {
           onMouseMove={handleMouseMove3D}
           onMouseLeave={handleMouseLeave3D}
           style={tiltStyle}
-          onClick={() => navigateWithTransition('/packages', '#ffffff')}
+          onClick={() => navigateWithTransition('/pricing', '#ffffff')}
           className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-200 border-white/20 bg-brand-charcoal/30 cursor-pointer"
         >
           <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-[10px] text-white tracking-wider font-semibold uppercase shadow-neon-glow">

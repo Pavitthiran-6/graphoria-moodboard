@@ -134,7 +134,7 @@ const individualServices = [
   }
 ];
 
-export default function PackagesPage() {
+export default function PricingPage() {
   const { navigateWithTransition } = useContext(PageTransitionContext);
 
   // Professional 3D tilt state for Card 2
