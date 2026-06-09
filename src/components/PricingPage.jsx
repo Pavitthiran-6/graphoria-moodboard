@@ -76,7 +76,7 @@ export default function PricingPage() {
   }, []);
 
   return (
-    <div className="bg-[#050505] text-white min-h-screen w-full relative pt-6 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+    <main className="bg-[#050505] text-white min-h-screen w-full relative pt-6 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
       
       {/* Premium Header/Navbar */}
       <header className="w-full flex items-center justify-between border-b border-white/10 pb-2 mb-16 pt-2 gap-4">
@@ -186,6 +186,6 @@ export default function PricingPage() {
         </a>
       </div>
 
-    </div>
+    </main>
   );
 }

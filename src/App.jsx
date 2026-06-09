@@ -2,9 +2,12 @@ import React, { useEffect, useRef, useState, createContext } from 'react';
 import Lenis from 'lenis';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FlowArtDefaultDemo from './components/ui/demo';
 import ServicePage from './components/ServicePage';
 import PricingPage from './components/PricingPage';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const PageTransitionContext = createContext();
 
@@ -12,6 +15,8 @@ function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Refresh ScrollTrigger when path changes to clean up any leftover pinning states
+    ScrollTrigger.refresh();
   }, [pathname]);
   return null;
 }
@@ -20,9 +25,21 @@ function AppContent() {
   const navigate = useNavigate();
   const overlayRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const lenisRef = useRef(null);
 
   useEffect(() => {
-    // Initialize Lenis Smooth Scroll
+    // Only initialize Lenis on non-touch devices or screens without touch capability
+    const isTouchDevice = 
+      'ontouchstart' in window || 
+      navigator.maxTouchPoints > 0 || 
+      window.matchMedia('(pointer: coarse)').matches;
+
+    if (isTouchDevice) {
+      console.log('Touch device detected. Skipping Lenis smooth scroll initialization to support native scrolling.');
+      return;
+    }
+
+    // Initialize Lenis Smooth Scroll for desktop
     const lenis = new Lenis({
       duration: 1.3,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -32,6 +49,7 @@ function AppContent() {
       wheelMultiplier: 0.95,
       touchMultiplier: 1.5,
     });
+    lenisRef.current = lenis;
 
     const raf = (time) => {
       lenis.raf(time);
@@ -42,12 +60,16 @@ function AppContent() {
 
     return () => {
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
 
   const navigateWithTransition = (toUrl, accentColor = '#050505') => {
     if (isTransitioning) return;
     setIsTransitioning(true);
+
+    // Stop Lenis scroll interactions during page transition sweeps
+    lenisRef.current?.stop();
 
     const pageContainer = document.querySelector('main');
 
@@ -71,6 +93,13 @@ function AppContent() {
           onComplete: () => {
             gsap.set(overlayRef.current, { yPercent: 100, display: 'none' });
             setIsTransitioning(false);
+
+            // Allow Lenis scrolling again
+            lenisRef.current?.start();
+
+            // Force recalculations of scroll heights and pins
+            ScrollTrigger.refresh();
+            lenisRef.current?.resize();
           }
         });
 
