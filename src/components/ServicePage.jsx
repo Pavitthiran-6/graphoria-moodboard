@@ -452,24 +452,15 @@ export default function ServicePage() {
   return (
     <div className="bg-[#050505] text-white min-h-screen w-full relative">
       
-      {/* Absolute Header Widget floating over FlowArt */}
-      <div className="absolute top-4 left-4 md:top-6 md:left-6 z-50 flex items-center gap-3">
-        {/* Back Button */}
+      {/* Absolute Back Button floating over FlowArt */}
+      <div className="absolute top-4 left-4 md:top-6 md:left-6 z-50">
         <button
           onClick={() => navigateWithTransition('/')}
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all duration-300 font-semibold text-xs backdrop-blur-md shadow-lg"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back</span>
+          <span>Back to Home</span>
         </button>
-
-        {/* Logo Badge */}
-        <img 
-          src="/logo.png" 
-          onClick={() => navigateWithTransition('/')}
-          className="h-16 md:h-20 w-auto cursor-pointer transition-transform duration-300 hover:scale-105" 
-          alt="Graphoria Logo" 
-        />
       </div>
 
       <FlowArt aria-label={`${data.title.join(' ')} Showcase`}>
