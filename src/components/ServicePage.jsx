@@ -470,7 +470,7 @@ export default function ServicePage() {
         >
           <img 
             src="/favicon.svg" 
-            className="h-8 w-auto transition-transform duration-300 group-hover:scale-105" 
+            className="h-16 md:h-20 w-auto transition-transform duration-300 group-hover:scale-105" 
             alt="Graphoria Logo" 
           />
         </div>

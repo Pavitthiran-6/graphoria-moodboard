@@ -184,7 +184,7 @@ export default function PricingPage() {
         >
           <img 
             src="/favicon.svg" 
-            className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
+            className="h-28 md:h-32 w-auto transition-transform duration-300 group-hover:scale-105" 
             alt="Graphoria Logo" 
           />
         </div>
