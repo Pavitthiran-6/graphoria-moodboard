@@ -488,6 +488,12 @@ const Showcase = () => {
               {desc}
             </p>
 
+            {/* Visit Service Link */}
+            <div className="mt-5 flex items-center gap-1.5 text-sm font-bold text-white/70 group-hover:text-white transition-colors duration-300">
+              <span>Explore Service</span>
+              <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </div>
+
             {/* Bottom glow line on hover */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-white/50 rounded-full transition-all duration-500 group-hover:w-2/3" />
           </div>
