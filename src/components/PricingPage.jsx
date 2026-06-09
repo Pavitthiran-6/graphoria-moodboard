@@ -176,12 +176,12 @@ export default function PricingPage() {
     <div className="bg-[#050505] text-white min-h-screen w-full relative pt-6 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
       
       {/* Premium Header/Navbar */}
-      <header className="w-full flex items-center justify-between border-b border-white/10 pb-6 mb-16 pt-2">
+      <header className="w-full flex items-center justify-between border-b border-white/10 pb-2 mb-16 pt-2">
         {/* Brand Logo */}
         <img 
           src="/logo.png" 
           onClick={() => navigateWithTransition('/')}
-          className="h-28 md:h-32 w-auto cursor-pointer transition-transform duration-300 hover:scale-105" 
+          className="h-28 md:h-32 w-auto -my-8 md:-my-10 cursor-pointer transition-transform duration-300 hover:scale-105" 
           alt="Graphoria Logo" 
         />
 
