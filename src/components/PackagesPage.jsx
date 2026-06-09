@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { PageTransitionContext } from '../App';
 import { Check, ArrowUpRight, ArrowLeft, Bell, Layout, Scroll } from 'lucide-react';
-import FlowArt, { FlowSection } from './ui/story-scroll';
 
 const packageData = [
   {
@@ -70,6 +68,72 @@ const packageData = [
   }
 ];
 
+const individualServices = [
+  {
+    idx: 0,
+    emoji: '✦',
+    title: 'Logo Design',
+    price: '₹3,000 – ₹10,000',
+    desc: 'Professional logo creation and brand identity development.',
+    path: '/services/logo-design',
+    glowHex: '#a855f7'
+  },
+  {
+    idx: 1,
+    emoji: '⬡',
+    title: 'Packaging Design',
+    price: '₹5,000 – ₹20,000',
+    desc: 'Creative product packaging designed for strong brand presence.',
+    path: '/services/packaging-design',
+    glowHex: '#f97316'
+  },
+  {
+    idx: 2,
+    emoji: '◈',
+    title: 'Business Stationeries',
+    price: '₹2,000 – ₹5,000',
+    desc: 'Business cards, letterheads, invoices, envelopes, and corporate materials.',
+    path: '/services/business-stationeries',
+    glowHex: '#3b82f6'
+  },
+  {
+    idx: 3,
+    emoji: '◎',
+    title: 'Social Media Poster Design',
+    price: '₹500 – ₹1,500 per post',
+    desc: 'Marketing creatives and promotional designs for social platforms.',
+    path: '/services/social-media-design',
+    glowHex: '#ec4899'
+  },
+  {
+    idx: 4,
+    emoji: '◬',
+    title: '3D Animation',
+    price: '₹55,000 – ₹85,000',
+    desc: 'High-quality 3D animation for products, brands, and promotional content.',
+    path: '/services/3d-animation',
+    glowHex: '#06b6d4'
+  },
+  {
+    idx: 5,
+    emoji: '⬙',
+    title: 'Product Advertisement Animation',
+    price: '₹30,000 – ₹80,000',
+    desc: 'Motion graphics and advertising videos designed to increase engagement.',
+    path: '/services/product-ad-animation',
+    glowHex: '#ef4444'
+  },
+  {
+    idx: 6,
+    emoji: '⬡',
+    title: 'Website & Mobile App Development',
+    price: '₹45,000 – ₹1,00,000+',
+    desc: 'Custom web and mobile applications built with modern technologies.',
+    path: '/services/web-mobile-development',
+    glowHex: '#ffffff'
+  }
+];
+
 export default function PackagesPage() {
   const { navigateWithTransition } = useContext(PageTransitionContext);
 
@@ -105,14 +169,14 @@ export default function PackagesPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const glowColorRaw = 'rgba(255, 255, 255, 0.05)';
-  const glowBorder = 'rgba(255, 255, 255, 0.2)';
+  const glowColorRaw = 'rgba(255, 255, 255, 0.03)';
+  const glowBorder = 'rgba(255, 255, 255, 0.15)';
 
   return (
-    <div className="bg-[#050505] text-white min-h-screen w-full relative">
+    <div className="bg-[#050505] text-white min-h-screen w-full relative py-24 px-6 md:px-12 max-w-7xl mx-auto">
       
-      {/* Absolute Back Button floating over FlowArt */}
-      <div className="absolute top-4 left-4 md:top-6 md:left-6 z-50">
+      {/* Back Button */}
+      <div className="absolute top-6 left-6 md:left-12 z-50">
         <button
           onClick={() => navigateWithTransition('/')}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all duration-300 font-medium text-xs backdrop-blur-md"
@@ -122,305 +186,299 @@ export default function PackagesPage() {
         </button>
       </div>
 
-      <FlowArt aria-label="Brand Packages Showcase">
+      {/* Backdrop glows */}
+      <div className="absolute top-44 left-1/4 -translate-x-1/2 w-[400px] h-[400px] bg-white/5 rounded-full filter blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute bottom-44 right-1/4 translate-x-1/2 w-[400px] h-[400px] bg-white/5 rounded-full filter blur-[150px] pointer-events-none -z-10" />
+
+      {/* Hero Header */}
+      <div className="mb-20 mt-12 text-center max-w-3xl mx-auto">
+        <div className="inline-flex items-center gap-2 mb-4">
+          <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Core Packages</p>
+        </div>
+        <h1 className="font-display font-black text-4xl md:text-6xl text-white mb-6 uppercase tracking-tight">
+          Brand Packages
+        </h1>
+        <p className="font-sans text-white/60 text-base md:text-lg font-light leading-relaxed">
+          Complete, end-to-end roadmap packages designed to launch your startup or expand your business with premium branding, packaging, animation, and custom software development.
+        </p>
+      </div>
+
+      {/* Packages Tiers Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch w-full py-6 relative z-10 mb-24">
         
-        {/* SECTION 01: Hero Section */}
-        <FlowSection
-          aria-label="Brand Packages Introduction"
-          style={{ backgroundColor: '#0b1329', color: '#ffffff' }}
-        >
-          <div className="flex items-center gap-2 mb-4 mt-14 md:mt-0">
-            <span className="w-2 h-2 rounded-full bg-white" />
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">01 — Core Tiers</p>
+        {/* Card 1: Startup Launch */}
+        <div className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02]">
+          <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-white/60 tracking-wider font-semibold uppercase">
+            {packageData[0].tag}
           </div>
-          <hr className="my-[2vw] border-none border-t border-white/20" />
+          <div>
+            <div className="mb-6 mt-2">
+              <Layout className="w-5 h-5 text-white/40" />
+            </div>
+            <h3 className="font-display font-black text-2xl text-white mb-1">{packageData[0].title}</h3>
+            <p className="text-xs font-semibold text-white/40 mb-4">{packageData[0].subtitle}</p>
+            <div className="mb-6 flex items-baseline gap-1">
+              <span className="font-display font-black text-4xl text-white">{packageData[0].price}</span>
+              <span className="text-xs text-white/40">/ project</span>
+            </div>
+            <p className="text-sm text-white/50 leading-relaxed font-light mb-6">{packageData[0].description}</p>
+            
+            {/* Package breakdown */}
+            <div className="mb-6 rounded-xl border border-white/8 bg-white/[0.03] overflow-hidden">
+              <p className="px-4 pt-3 pb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">Package Includes</p>
+              <div className="px-4 pb-2 space-y-2">
+                {packageData[0].breakdown.map(({ label, price }) => (
+                  <div key={label} className="flex items-center justify-between">
+                    <span className="text-xs text-white/45 font-light">{label}</span>
+                    <span className="text-xs text-white/55 font-semibold font-display tabular-nums">{price}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mx-4 h-[1px] bg-white/8 my-2" />
+              <div className="px-4 pb-2 flex items-center justify-between">
+                <span className="text-xs text-white/40 font-light">Individual Total</span>
+                <span className="text-xs text-white/50 font-semibold font-display line-through tabular-nums">{packageData[0].originalTotal}</span>
+              </div>
+              <div className="px-4 pb-3 flex items-center justify-between">
+                <span className="text-xs font-bold text-white/70 uppercase tracking-wider">You Save</span>
+                <span className="text-xs font-black font-display text-white">{packageData[0].savings}</span>
+              </div>
+            </div>
+
+            <ul className="space-y-3.5 mb-2">
+              {packageData[0].features.map((feature, i) => (
+                <li key={i} className="flex items-center gap-3 text-sm text-white/70">
+                  <div className="w-4 h-4 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-2.5 h-2.5 text-white" />
+                  </div>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Card 2: Business Growth (Highlighted with 3D tilt) */}
+        <div
+          ref={tiltCardRef}
+          onMouseMove={handleMouseMove3D}
+          onMouseLeave={handleMouseLeave3D}
+          style={{
+            ...tiltStyle,
+            borderColor: glowBorder,
+            boxShadow: '0 0 25px rgba(255, 255, 255, 0.08)'
+          }}
+          className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-200 bg-brand-charcoal/30 border-2"
+        >
+          <div 
+            className="absolute top-6 right-6 px-3 py-1 rounded-full text-[10px] text-white tracking-wider font-semibold uppercase border"
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: glowBorder,
+              boxShadow: '0 0 10px rgba(255, 255, 255, 0.1)'
+            }}
+          >
+            {packageData[1].tag}
+          </div>
           
           <div>
-            <h1
-              className="text-[clamp(2.2rem,11vw,12rem)] md:text-[clamp(3.5rem,11vw,12rem)] font-bold leading-[0.85] uppercase tracking-tight font-display text-glow-custom"
-              style={{
-                textShadow: '0 0 40px rgba(255, 255, 255, 0.15)'
-              }}
-            >
-              BRAND
-              <br />
-              <span className="text-white/80">PACKAGES</span>
-            </h1>
-          </div>
-          
-          <hr className="my-[2vw] border-none border-t border-white/20" />
-          
-          <p className="max-w-[45ch] text-[clamp(1.1rem,2.2vw,1.8rem)] font-normal leading-relaxed text-white/90">
-            End-to-end design & digital packages combining branding, packaging, social creatives, and premium web & mobile development.
-          </p>
-          
-          <hr className="my-[2vw] border-none border-t border-white/20" />
-          
-          <p className="max-w-[60ch] text-[clamp(0.85rem,1.5vw,1.15rem)] font-light leading-relaxed text-white/60">
-            Choose a complete roadmap built to establish your authority in the market. Scroll down to review package options, breakdown of savings, and custom options.
-          </p>
-        </FlowSection>
-
-        {/* SECTION 02: Package Options */}
-        <FlowSection
-          aria-label="Packages Details"
-          style={{ backgroundColor: '#020617', color: '#ffffff' }}
-        >
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-white" />
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">02 — Packages & Breakdown</p>
-            </div>
-            <p className="text-[10px] font-semibold tracking-widest text-white/30 uppercase">Compare Packages</p>
-          </div>
-          <hr className="my-[2vw] border-none border-t border-white/10" />
-
-          {/* Pricing grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch w-full py-6 relative z-10">
-            
-            {/* Dynamic decorative blur */}
-            <div 
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] rounded-full filter blur-[130px] pointer-events-none -z-10" 
-              style={{ backgroundColor: glowColorRaw }}
-            />
-
-            {/* Card 1: Startup Launch */}
-            <div className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02]">
-              <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-white/60 tracking-wider font-semibold uppercase">
-                {packageData[0].tag}
-              </div>
-              <div>
-                <div className="mb-6 mt-2">
-                  <Layout className="w-5 h-5 text-white/40" />
-                </div>
-                <h3 className="font-display font-black text-2xl text-white mb-1">{packageData[0].title}</h3>
-                <p className="text-xs font-semibold text-white/40 mb-4">{packageData[0].subtitle}</p>
-                <div className="mb-6 flex items-baseline gap-1">
-                  <span className="font-display font-black text-4xl text-white">{packageData[0].price}</span>
-                  <span className="text-xs text-white/40">/ project</span>
-                </div>
-                <p className="text-sm text-white/50 leading-relaxed font-light mb-6">{packageData[0].description}</p>
-                
-                {/* Package breakdown */}
-                <div className="mb-6 rounded-xl border border-white/8 bg-white/[0.03] overflow-hidden">
-                  <p className="px-4 pt-3 pb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">Package Includes</p>
-                  <div className="px-4 pb-2 space-y-2">
-                    {packageData[0].breakdown.map(({ label, price }) => (
-                      <div key={label} className="flex items-center justify-between">
-                        <span className="text-xs text-white/45 font-light">{label}</span>
-                        <span className="text-xs text-white/55 font-semibold font-display tabular-nums">{price}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mx-4 h-[1px] bg-white/8 my-2" />
-                  <div className="px-4 pb-2 flex items-center justify-between">
-                    <span className="text-xs text-white/40 font-light">Individual Total</span>
-                    <span className="text-xs text-white/50 font-semibold font-display line-through tabular-nums">{packageData[0].originalTotal}</span>
-                  </div>
-                  <div className="px-4 pb-3 flex items-center justify-between">
-                    <span className="text-xs font-bold text-white/70 uppercase tracking-wider">You Save</span>
-                    <span className="text-xs font-black font-display text-white">{packageData[0].savings}</span>
-                  </div>
-                </div>
-
-                <ul className="space-y-3.5 mb-2">
-                  {packageData[0].features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-white/70">
-                      <div className="w-4 h-4 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-                        <Check className="w-2.5 h-2.5 text-white" />
-                      </div>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Card 2: Business Growth (Highlighted with 3D tilt) */}
             <div
-              ref={tiltCardRef}
-              onMouseMove={handleMouseMove3D}
-              onMouseLeave={handleMouseLeave3D}
-              style={{
-                ...tiltStyle,
-                borderColor: glowBorder,
-                boxShadow: '0 0 25px rgba(255, 255, 255, 0.08)'
-              }}
-              className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-200 bg-brand-charcoal/30 border-2"
+              style={{ transform: `translate3d(${parallaxOffset.x * 0.5}px, ${parallaxOffset.y * 0.5}px, 0)` }}
+              className="mb-6 mt-2"
             >
-              <div 
-                className="absolute top-6 right-6 px-3 py-1 rounded-full text-[10px] text-white tracking-wider font-semibold uppercase border"
+              <Scroll className="w-5 h-5 text-white" />
+            </div>
+            
+            <div style={{ transform: `translate3d(${parallaxOffset.x * 0.3}px, ${parallaxOffset.y * 0.3}px, 0)` }}>
+              <h3 className="font-display font-black text-2xl text-white mb-1">{packageData[1].title}</h3>
+              <p className="text-xs font-semibold text-white/40 mb-4">{packageData[1].subtitle}</p>
+            </div>
+            
+            <div
+              style={{ transform: `translate3d(${parallaxOffset.x * 0.4}px, ${parallaxOffset.y * 0.4}px, 0)` }}
+              className="mb-6 flex items-baseline gap-1"
+            >
+              <span className="font-display font-black text-4xl text-white text-glow" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3)' }}>
+                {packageData[1].price}
+              </span>
+              <span className="text-xs text-white/40">/ project</span>
+            </div>
+            
+            <p className="text-sm text-white/50 leading-relaxed font-light mb-6">{packageData[1].description}</p>
+            
+            {/* Package breakdown */}
+            <div className="mb-6 rounded-xl border border-white/10 bg-white/[0.04] overflow-hidden">
+              <p className="px-4 pt-3 pb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Package Includes</p>
+              <div className="px-4 pb-2 space-y-2">
+                {packageData[1].breakdown.map(({ label, price }) => (
+                  <div key={label} className="flex items-center justify-between">
+                    <span className="text-xs text-white/50 font-light">{label}</span>
+                    <span className="text-xs text-white/65 font-semibold font-display tabular-nums">{price}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mx-4 h-[1px] bg-white/10 my-2" />
+              <div className="px-4 pb-2 flex items-center justify-between">
+                <span className="text-xs text-white/45 font-light">Individual Total</span>
+                <span className="text-xs text-white/55 font-semibold font-display line-through tabular-nums">{packageData[1].originalTotal}</span>
+              </div>
+              <div className="px-4 pb-3 flex items-center justify-between">
+                <span className="text-xs font-bold text-white uppercase tracking-wider">You Save</span>
+                <span className="text-xs font-black font-display text-white text-glow">{packageData[1].savings}</span>
+              </div>
+            </div>
+
+            <ul className="space-y-3.5 mb-2">
+              {packageData[1].features.map((feature, i) => (
+                <li key={i} className="flex items-center gap-3 text-sm text-white/70">
+                  <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
+                    <Check className="w-2.5 h-2.5 text-white" />
+                  </div>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Card 3: Custom Quote */}
+        <div className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02]">
+          <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-white/60 tracking-wider font-semibold uppercase">
+            {packageData[2].tag}
+          </div>
+
+          <div>
+            <div className="mb-6 mt-2">
+              <Bell className="w-5 h-5 text-white/40" />
+            </div>
+            <h3 className="font-display font-black text-2xl text-white mb-1">{packageData[2].title}</h3>
+            <p className="text-xs font-semibold text-white/40 mb-4">{packageData[2].subtitle}</p>
+            <div className="mb-6 flex items-baseline gap-1">
+              <span className="font-display font-black text-4xl text-white">{packageData[2].price}</span>
+            </div>
+
+            {/* Alert notice banner */}
+            <div className="mb-6 flex items-start gap-3 px-4 py-3 rounded-xl border border-white/10 bg-white/[0.04]">
+              <Bell className="w-4 h-4 text-white/50 flex-shrink-0 mt-0.5" />
+              <p className="text-xs text-white/50 leading-relaxed font-light">
+                This tier is scoped collaboratively on discovery calls based on your specific requirements.
+              </p>
+            </div>
+
+            <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{packageData[2].description}</p>
+            
+            <ul className="space-y-3.5 mb-8">
+              {packageData[2].features.map((feature, i) => (
+                <li key={i} className="flex items-center gap-3 text-sm text-white/70">
+                  <div className="w-4 h-4 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-2.5 h-2.5 text-white" />
+                  </div>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <a
+            href={`mailto:graphoriacreativitydesign@gmail.com?subject=Inquiry for ${packageData[2].title}`}
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-display font-semibold text-sm transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
+          >
+            <span>Request a Quote</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
+        </div>
+
+      </div>
+
+      <hr className="my-16 border-white/10" />
+
+      {/* Individual Services Section */}
+      <div className="w-full">
+        {/* Section header */}
+        <div className="mb-12 text-center">
+          <div className="inline-flex items-center gap-2 mb-5">
+            <div className="w-6 h-[1px] bg-white/25" />
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">
+              Individual Services
+            </p>
+            <div className="w-6 h-[1px] bg-white/25" />
+          </div>
+          <h3 className="font-display font-black text-3xl md:text-4xl text-white mb-4 leading-tight">
+            Individual Standalone Services
+          </h3>
+          <p className="font-sans text-white/50 text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto">
+            Standalone creative, branding, animation, and development services available individually or as part of a complete project.
+          </p>
+        </div>
+
+        {/* Services grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {individualServices.map(({ idx, emoji, title, price, desc, path, glowHex }) => (
+            <div
+              key={idx}
+              onClick={() => navigateWithTransition(path, glowHex)}
+              className="group relative flex flex-col p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02] cursor-pointer"
+            >
+              {/* Decorative symbol */}
+              <div className="mb-5 text-white/20 text-xl font-light select-none leading-none">
+                {emoji}
+              </div>
+
+              {/* Title */}
+              <h4 className="font-display font-bold text-lg text-white mb-2 leading-snug">
+                {title}
+              </h4>
+
+              {/* Price */}
+              <p
+                className="font-display font-black text-base mb-4 leading-tight"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  borderColor: glowBorder,
-                  boxShadow: '0 0 10px rgba(255, 255, 255, 0.1)'
+                  background: 'linear-gradient(90deg,#fff 0%,rgba(255,255,255,0.55) 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
                 }}
               >
-                {packageData[1].tag}
-              </div>
-              
-              <div>
-                <div
-                  style={{ transform: `translate3d(${parallaxOffset.x * 0.5}px, ${parallaxOffset.y * 0.5}px, 0)` }}
-                  className="mb-6 mt-2"
-                >
-                  <Scroll className="w-5 h-5 text-white" />
-                </div>
-                
-                <div style={{ transform: `translate3d(${parallaxOffset.x * 0.3}px, ${parallaxOffset.y * 0.3}px, 0)` }}>
-                  <h3 className="font-display font-black text-2xl text-white mb-1">{packageData[1].title}</h3>
-                  <p className="text-xs font-semibold text-white/40 mb-4">{packageData[1].subtitle}</p>
-                </div>
-                
-                <div
-                  style={{ transform: `translate3d(${parallaxOffset.x * 0.4}px, ${parallaxOffset.y * 0.4}px, 0)` }}
-                  className="mb-6 flex items-baseline gap-1"
-                >
-                  <span className="font-display font-black text-4xl text-white text-glow" style={{ textShadow: '0 0 10px rgba(255, 255, 255, 0.3)' }}>
-                    {packageData[1].price}
-                  </span>
-                  <span className="text-xs text-white/40">/ project</span>
-                </div>
-                
-                <p className="text-sm text-white/50 leading-relaxed font-light mb-6">{packageData[1].description}</p>
-                
-                {/* Package breakdown */}
-                <div className="mb-6 rounded-xl border border-white/10 bg-white/[0.04] overflow-hidden">
-                  <p className="px-4 pt-3 pb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Package Includes</p>
-                  <div className="px-4 pb-2 space-y-2">
-                    {packageData[1].breakdown.map(({ label, price }) => (
-                      <div key={label} className="flex items-center justify-between">
-                        <span className="text-xs text-white/50 font-light">{label}</span>
-                        <span className="text-xs text-white/65 font-semibold font-display tabular-nums">{price}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mx-4 h-[1px] bg-white/10 my-2" />
-                  <div className="px-4 pb-2 flex items-center justify-between">
-                    <span className="text-xs text-white/45 font-light">Individual Total</span>
-                    <span className="text-xs text-white/55 font-semibold font-display line-through tabular-nums">{packageData[1].originalTotal}</span>
-                  </div>
-                  <div className="px-4 pb-3 flex items-center justify-between">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">You Save</span>
-                    <span className="text-xs font-black font-display text-white text-glow">{packageData[1].savings}</span>
-                  </div>
-                </div>
+                {price}
+              </p>
 
-                <ul className="space-y-3.5 mb-2">
-                  {packageData[1].features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-white/70">
-                      <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}>
-                        <Check className="w-2.5 h-2.5 text-white" />
-                      </div>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Divider */}
+              <div className="w-full h-[1px] bg-white/8 mb-4" />
+
+              {/* Description */}
+              <p className="font-sans text-sm text-white/50 leading-relaxed font-light flex-1">
+                {desc}
+              </p>
+
+              {/* Visit Service Link */}
+              <div className="mt-5 flex items-center gap-1.5 text-sm font-bold text-white/70 group-hover:text-white transition-colors duration-300">
+                <span>Explore Service</span>
+                <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
               </div>
+
+              {/* Bottom glow line on hover */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-white/50 rounded-full transition-all duration-500 group-hover:w-2/3" />
             </div>
+          ))}
+        </div>
+      </div>
 
-            {/* Card 3: Custom Quote */}
-            <div className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02]">
-              <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-white/60 tracking-wider font-semibold uppercase">
-                {packageData[2].tag}
-              </div>
-
-              <div>
-                <div className="mb-6 mt-2">
-                  <Bell className="w-5 h-5 text-white/40" />
-                </div>
-                <h3 className="font-display font-black text-2xl text-white mb-1">{packageData[2].title}</h3>
-                <p className="text-xs font-semibold text-white/40 mb-4">{packageData[2].subtitle}</p>
-                <div className="mb-6 flex items-baseline gap-1">
-                  <span className="font-display font-black text-4xl text-white">{packageData[2].price}</span>
-                </div>
-
-                {/* Alert notice banner */}
-                <div className="mb-6 flex items-start gap-3 px-4 py-3 rounded-xl border border-white/10 bg-white/[0.04]">
-                  <Bell className="w-4 h-4 text-white/50 flex-shrink-0 mt-0.5" />
-                  <p className="text-xs text-white/50 leading-relaxed font-light">
-                    This tier is scoped collaboratively on discovery calls based on your specific requirements.
-                  </p>
-                </div>
-
-                <p className="text-sm text-white/50 leading-relaxed font-light mb-8">{packageData[2].description}</p>
-                
-                <ul className="space-y-3.5 mb-8">
-                  {packageData[2].features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-white/70">
-                      <div className="w-4 h-4 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-                        <Check className="w-2.5 h-2.5 text-white" />
-                      </div>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <a
-                href={`mailto:graphoriacreativitydesign@gmail.com?subject=Inquiry for ${packageData[2].title}`}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-display font-semibold text-sm transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
-              >
-                <span>Request a Quote</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
-
-          </div>
-        </FlowSection>
-
-        {/* SECTION 03: CTA Section */}
-        <FlowSection
-          aria-label="Call to Action"
-          style={{ backgroundColor: '#2e1040', color: '#ffffff' }}
+      {/* Footer Custom Discussion */}
+      <div className="mt-24 max-w-2xl mx-auto flex flex-col items-center">
+        <div className="w-12 h-[1px] bg-white/20 mb-6" />
+        <p className="font-sans text-white/50 text-sm md:text-base font-light leading-relaxed mb-4 text-center">
+          Have custom features or complex enterprise requirements? We design tailored solutions specifically structured for your scaling needs, custom integrations, and branding systems.
+        </p>
+        <a
+          href="mailto:graphoriacreativitydesign@gmail.com"
+          className="inline-flex items-center gap-1.5 text-white hover:text-white transition-colors duration-300 font-semibold text-sm border-b border-white/30 pb-0.5 hover:border-white"
         >
-          <div className="flex items-center gap-2 mb-4">
-            <span className="w-2 h-2 rounded-full bg-white" />
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">03 — Discuss Project</p>
-          </div>
-          <hr className="my-[2vw] border-none border-t border-white/20" />
-          
-          <div>
-            <h2
-              className="text-[clamp(3.5rem,11vw,12rem)] font-bold leading-[0.85] uppercase tracking-tight font-display"
-            >
-              Ready
-              <br />
-              To
-              <br />
-              Grow?
-            </h2>
-          </div>
-          
-          <hr className="my-[2vw] border-none border-t border-white/20" />
-          
-          <p className="mt-auto max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed text-white/80">
-            Let's structure a roadmap that transforms your startup or business into a highly professional, scaling market leader.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <a
-              href="mailto:graphoriacreativitydesign@gmail.com?subject=Package Setup Inquiry"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-display font-bold text-base bg-white text-black transition-all duration-300 hover:scale-[1.03]"
-              style={{
-                boxShadow: '0 0 25px rgba(255, 255, 255, 0.15)'
-              }}
-            >
-              <span>Get Started</span>
-              <ArrowUpRight className="w-5 h-5" />
-            </a>
-            
-            <button
-              onClick={() => navigateWithTransition('/')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-display font-semibold text-base bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 text-white/80"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Moodboard</span>
-            </button>
-          </div>
-        </FlowSection>
+          <span>Discuss Custom Requirements</span>
+          <ArrowUpRight className="w-4 h-4" />
+        </a>
+      </div>
 
-      </FlowArt>
     </div>
   );
 }
