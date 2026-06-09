@@ -84,7 +84,7 @@ export default function PricingPage() {
         <img 
           src="/logo.png" 
           onClick={() => navigateWithTransition('/')}
-          className="h-16 sm:h-24 md:h-32 w-auto -my-4 sm:-my-7 md:-my-10 cursor-pointer transition-transform duration-300 hover:scale-105" 
+          className="h-28 md:h-32 w-auto -my-8 md:-my-10 cursor-pointer transition-transform duration-300 hover:scale-105" 
           alt="Graphoria Logo" 
         />
 
