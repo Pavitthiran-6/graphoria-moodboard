@@ -183,7 +183,7 @@ export default function PricingPage() {
           className="flex items-center cursor-pointer group"
         >
           <img 
-            src="/favicon.svg" 
+            src="/logo.png" 
             className="h-28 md:h-32 w-auto transition-transform duration-300 group-hover:scale-105" 
             alt="Graphoria Logo" 
           />

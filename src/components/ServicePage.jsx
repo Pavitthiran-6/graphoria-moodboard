@@ -469,7 +469,7 @@ export default function ServicePage() {
           className="flex items-center cursor-pointer group bg-black/30 backdrop-blur-md px-1.5 py-1.5 rounded-xl border border-white/5 shadow-lg transition-all duration-300 hover:border-white/10"
         >
           <img 
-            src="/favicon.svg" 
+            src="/logo.png" 
             className="h-16 md:h-20 w-auto transition-transform duration-300 group-hover:scale-105" 
             alt="Graphoria Logo" 
           />
