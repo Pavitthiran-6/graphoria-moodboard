@@ -79,22 +79,22 @@ export default function PricingPage() {
     <div className="bg-[#050505] text-white min-h-screen w-full relative pt-6 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
       
       {/* Premium Header/Navbar */}
-      <header className="w-full flex items-center justify-between border-b border-white/10 pb-2 mb-16 pt-2">
+      <header className="w-full flex items-center justify-between border-b border-white/10 pb-2 mb-16 pt-2 gap-4">
         {/* Brand Logo */}
         <img 
           src="/logo.png" 
           onClick={() => navigateWithTransition('/')}
-          className="h-28 md:h-32 w-auto -my-8 md:-my-10 cursor-pointer transition-transform duration-300 hover:scale-105" 
+          className="h-16 sm:h-24 md:h-32 w-auto -my-4 sm:-my-7 md:-my-10 cursor-pointer transition-transform duration-300 hover:scale-105" 
           alt="Graphoria Logo" 
         />
 
         {/* Back Button */}
         <button
           onClick={() => navigateWithTransition('/')}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all duration-300 font-semibold text-xs backdrop-blur-md"
+          className="inline-flex items-center gap-2 px-3 py-2 md:px-4 md:py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all duration-300 font-semibold text-xs backdrop-blur-md flex-shrink-0"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to Home</span>
+          <span>Back<span className="hidden sm:inline"> to Home</span></span>
         </button>
       </header>
 
