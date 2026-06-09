@@ -180,21 +180,43 @@ export default function PricingPage() {
         {/* Brand Logo */}
         <div 
           onClick={() => navigateWithTransition('/')} 
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center cursor-pointer group"
         >
-          {/* Logo Mark SVG */}
-          <div className="w-10 h-10 rounded-xl bg-black/60 flex items-center justify-center border border-white/10 shadow-[0_0_15px_rgba(0,223,102,0.15)] group-hover:border-white/20 transition-all duration-300">
-            <svg viewBox="0 0 100 100" className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300">
+          <svg viewBox="90 150 370 165" className="h-14 md:h-16 w-auto transition-transform duration-300 group-hover:scale-[1.02]">
+            <g transform="translate(15, 5)">
+              {/* Green corner logo mark */}
               <path 
                 d="M 0,40 C 0,15 15,0 40,0 L 95,0 C 95,15 85,25 70,25 L 40,25 C 30,25 25,30 25,40 L 25,70 C 25,85 15,95 0,95 Z" 
+                transform="translate(85, 155) scale(0.95)" 
                 fill="#00DF66"
               />
-            </svg>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display font-black text-xl tracking-wider text-white leading-none">graphoria</span>
-            <span className="text-[7.5px] font-semibold text-white/40 tracking-[3.5px] uppercase leading-none mt-1 group-hover:text-white/60 transition-colors duration-300">creativity design</span>
-          </div>
+              {/* 'graphoria' text */}
+              <text 
+                x="185" 
+                y="235" 
+                fontFamily="'Outfit', sans-serif" 
+                fontSize="68" 
+                fontWeight="800" 
+                fill="#ffffff" 
+                letterSpacing="-2px"
+              >
+                graphoria
+              </text>
+              {/* 'CREATIVITY DESIGN' text */}
+              <text 
+                x="240" 
+                y="295" 
+                fontFamily="'Outfit', sans-serif" 
+                fontSize="20" 
+                fontWeight="600" 
+                fill="#ffffff" 
+                letterSpacing="9px" 
+                textAnchor="middle"
+              >
+                CREATIVITY DESIGN
+              </text>
+            </g>
+          </svg>
         </div>
 
         {/* Back Button */}
