@@ -452,15 +452,39 @@ export default function ServicePage() {
   return (
     <div className="bg-[#050505] text-white min-h-screen w-full relative">
       
-      {/* Absolute Back Button floating over FlowArt */}
-      <div className="absolute top-4 left-4 md:top-6 md:left-6 z-50">
+      {/* Absolute Header Widget floating over FlowArt */}
+      <div className="absolute top-4 left-4 md:top-6 md:left-6 z-50 flex items-center gap-3">
+        {/* Back Button */}
         <button
           onClick={() => navigateWithTransition('/')}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all duration-300 font-medium text-xs backdrop-blur-md"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all duration-300 font-semibold text-xs backdrop-blur-md shadow-lg"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to Home</span>
+          <span>Back</span>
         </button>
+
+        {/* Logo Divider */}
+        <div className="h-6 w-[1px] bg-white/15 hidden sm:block" />
+
+        {/* Logo Badge */}
+        <div 
+          onClick={() => navigateWithTransition('/')}
+          className="flex items-center gap-2.5 cursor-pointer group bg-black/30 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/5 shadow-lg"
+        >
+          {/* Logo Mark SVG */}
+          <div className="w-6 h-6 rounded-lg bg-black/60 flex items-center justify-center border border-white/10 shadow-[0_0_10px_rgba(0,223,102,0.15)] group-hover:border-white/20 transition-all duration-300">
+            <svg viewBox="0 0 100 100" className="w-3.5 h-3.5 transform group-hover:scale-110 transition-transform duration-300">
+              <path 
+                d="M 0,40 C 0,15 15,0 40,0 L 95,0 C 95,15 85,25 70,25 L 40,25 C 30,25 25,30 25,40 L 25,70 C 25,85 15,95 0,95 Z" 
+                fill="#00DF66"
+              />
+            </svg>
+          </div>
+          <div className="flex flex-col">
+            <span className="font-display font-black text-sm tracking-wider text-white leading-none">graphoria</span>
+            <span className="text-[5.5px] font-semibold text-white/40 tracking-[2px] uppercase leading-none mt-0.5 group-hover:text-white/60 transition-colors duration-300">creativity design</span>
+          </div>
+        </div>
       </div>
 
       <FlowArt aria-label={`${data.title.join(' ')} Showcase`}>
