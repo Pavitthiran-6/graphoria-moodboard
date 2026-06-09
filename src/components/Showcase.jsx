@@ -397,123 +397,15 @@ const Showcase = () => {
           </p>
       </div>
 
-      {/* Services grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {[
-          {
-            idx: 0,
-            emoji: '✦',
-            title: 'Logo Design',
-            price: '₹3,000 – ₹10,000',
-            desc: 'Professional logo creation and brand identity development.',
-            path: '/services/logo-design',
-            glowHex: '#a855f7'
-          },
-          {
-            idx: 1,
-            emoji: '⬡',
-            title: 'Packaging Design',
-            price: '₹5,000 – ₹20,000',
-            desc: 'Creative product packaging designed for strong brand presence.',
-            path: '/services/packaging-design',
-            glowHex: '#f97316'
-          },
-          {
-            idx: 2,
-            emoji: '◈',
-            title: 'Business Stationeries',
-            price: '₹2,000 – ₹5,000',
-            desc: 'Business cards, letterheads, invoices, envelopes, and corporate materials.',
-            path: '/services/business-stationeries',
-            glowHex: '#3b82f6'
-          },
-          {
-            idx: 3,
-            emoji: '◎',
-            title: 'Social Media Poster Design',
-            price: '₹500 – ₹1,500 per post',
-            desc: 'Marketing creatives and promotional designs for social platforms.',
-            path: '/services/social-media-design',
-            glowHex: '#ec4899'
-          },
-          {
-            idx: 4,
-            emoji: '◬',
-            title: '3D Animation',
-            price: '₹55,000 – ₹85,000',
-            desc: 'High-quality 3D animation for products, brands, and promotional content.',
-            path: '/services/3d-animation',
-            glowHex: '#06b6d4'
-          },
-          {
-            idx: 5,
-            emoji: '⬙',
-            title: 'Product Advertisement Animation',
-            price: '₹30,000 – ₹80,000',
-            desc: 'Motion graphics and advertising videos designed to increase engagement.',
-            path: '/services/product-ad-animation',
-            glowHex: '#ef4444'
-          },
-          {
-            idx: 6,
-            emoji: '⬡',
-            title: 'Website & Mobile App Development',
-            price: '₹45,000 – ₹1,00,000+',
-            desc: 'Custom web and mobile applications built with modern technologies.',
-            path: '/services/web-mobile-development',
-            glowHex: '#ffffff'
-          },
-        ].map(({ idx, emoji, title, price, desc, path, glowHex }) => (
-          <div
-            key={idx}
-            onClick={() => navigateWithTransition(path, glowHex)}
-            className="group relative flex flex-col p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02] cursor-pointer"
-            style={{
-              animation: `cardFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both`,
-              animationDelay: `${idx * 0.07}s`,
-            }}
-          >
-            {/* Decorative symbol */}
-            <div className="mb-5 text-white/20 text-xl font-light select-none leading-none">
-              {emoji}
-            </div>
-
-            {/* Title */}
-            <h4 className="font-display font-bold text-lg text-white mb-2 leading-snug">
-              {title}
-            </h4>
-
-            {/* Price */}
-            <p
-              className="font-display font-black text-base mb-4 leading-tight"
-              style={{
-                background: 'linear-gradient(90deg,#fff 0%,rgba(255,255,255,0.55) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              {price}
-            </p>
-
-            {/* Divider */}
-            <div className="w-full h-[1px] bg-white/8 mb-4" />
-
-            {/* Description */}
-            <p className="font-sans text-sm text-white/50 leading-relaxed font-light flex-1">
-              {desc}
-            </p>
-
-            {/* Visit Service Link */}
-            <div className="mt-5 flex items-center gap-1.5 text-sm font-bold text-white/70 group-hover:text-white transition-colors duration-300">
-              <span>Explore Service</span>
-              <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-            </div>
-
-            {/* Bottom glow line on hover */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-white/50 rounded-full transition-all duration-500 group-hover:w-2/3" />
-          </div>
-        ))}
+      {/* Services CTA button */}
+      <div className="flex justify-center py-6">
+        <button
+          onClick={() => navigateWithTransition('/pricing', '#ffffff')}
+          className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-display font-bold text-base bg-white text-black transition-all duration-300 hover:scale-[1.03] shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+        >
+          <span>Explore All Services & Pricing</span>
+          <ArrowUpRight className="w-5 h-5" />
+        </button>
       </div>
     </div>
       <div className="mt-16 max-w-2xl mx-auto flex flex-col items-center">
