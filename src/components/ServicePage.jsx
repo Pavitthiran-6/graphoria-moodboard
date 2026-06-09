@@ -466,43 +466,13 @@ export default function ServicePage() {
         {/* Logo Badge */}
         <div 
           onClick={() => navigateWithTransition('/')}
-          className="flex items-center cursor-pointer group bg-black/30 backdrop-blur-md px-1 py-1 rounded-xl border border-white/5 shadow-lg transition-all duration-300 hover:border-white/10"
+          className="flex items-center cursor-pointer group bg-black/30 backdrop-blur-md px-1.5 py-1.5 rounded-xl border border-white/5 shadow-lg transition-all duration-300 hover:border-white/10"
         >
-          <svg viewBox="90 150 370 165" className="h-9 w-auto">
-            <g transform="translate(15, 5)">
-              {/* Green corner logo mark */}
-              <path 
-                d="M 0,40 C 0,15 15,0 40,0 L 95,0 C 95,15 85,25 70,25 L 40,25 C 30,25 25,30 25,40 L 25,70 C 25,85 15,95 0,95 Z" 
-                transform="translate(85, 155) scale(0.95)" 
-                fill="#00DF66"
-              />
-              {/* 'graphoria' text */}
-              <text 
-                x="185" 
-                y="235" 
-                fontFamily="'Outfit', sans-serif" 
-                fontSize="68" 
-                fontWeight="800" 
-                fill="#ffffff" 
-                letterSpacing="-2px"
-              >
-                graphoria
-              </text>
-              {/* 'CREATIVITY DESIGN' text */}
-              <text 
-                x="240" 
-                y="295" 
-                fontFamily="'Outfit', sans-serif" 
-                fontSize="20" 
-                fontWeight="600" 
-                fill="#ffffff" 
-                letterSpacing="9px" 
-                textAnchor="middle"
-              >
-                CREATIVITY DESIGN
-              </text>
-            </g>
-          </svg>
+          <img 
+            src="/favicon.svg" 
+            className="h-8 w-auto transition-transform duration-300 group-hover:scale-105" 
+            alt="Graphoria Logo" 
+          />
         </div>
       </div>
 
