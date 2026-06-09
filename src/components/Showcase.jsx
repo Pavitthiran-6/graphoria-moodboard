@@ -180,7 +180,10 @@ const Showcase = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
 
         {/* ══ Card 1: Modern Style ══ */}
-        <div className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02]">
+        <div 
+          onClick={() => navigateWithTransition('/packages', '#ffffff')}
+          className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-500 hover:scale-[1.02] cursor-pointer"
+        >
           <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-white/60 tracking-wider font-semibold uppercase">
             {tiers[0].tag}
           </div>
@@ -224,7 +227,7 @@ const Showcase = () => {
               </div>
             </div>
 
-            <ul className="space-y-3.5">
+            <ul className="space-y-3.5 mb-6">
               {tiers[0].features.map((feature, i) => (
                 <li key={i} className="flex items-center gap-3 text-sm text-white/70">
                   <div className="w-4 h-4 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
@@ -234,6 +237,12 @@ const Showcase = () => {
                 </li>
               ))}
             </ul>
+
+            {/* Explore Package Link */}
+            <div className="mt-5 flex items-center gap-1.5 text-sm font-bold text-white/70 group-hover:text-white transition-colors duration-300">
+              <span>Explore Package</span>
+              <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </div>
           </div>
         </div>
 
@@ -243,7 +252,8 @@ const Showcase = () => {
           onMouseMove={handleMouseMove3D}
           onMouseLeave={handleMouseLeave3D}
           style={tiltStyle}
-          className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-200 border-white/20 bg-brand-charcoal/30"
+          onClick={() => navigateWithTransition('/packages', '#ffffff')}
+          className="group relative flex flex-col justify-between p-8 rounded-2xl glass-card text-left transition-all duration-200 border-white/20 bg-brand-charcoal/30 cursor-pointer"
         >
           <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-[10px] text-white tracking-wider font-semibold uppercase shadow-neon-glow">
             {tiers[1].tag}
@@ -296,7 +306,7 @@ const Showcase = () => {
               </div>
             </div>
 
-            <ul className="space-y-3.5">
+            <ul className="space-y-3.5 mb-6">
               {tiers[1].features.map((feature, i) => (
                 <li key={i} className="flex items-center gap-3 text-sm text-white/70">
                   <div className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
@@ -306,6 +316,12 @@ const Showcase = () => {
                 </li>
               ))}
             </ul>
+
+            {/* Explore Package Link */}
+            <div className="mt-5 flex items-center gap-1.5 text-sm font-bold text-white/70 group-hover:text-white transition-colors duration-300">
+              <span>Explore Package</span>
+              <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </div>
           </div>
         </div>
 

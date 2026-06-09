@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-ro
 import { gsap } from 'gsap';
 import FlowArtDefaultDemo from './components/ui/demo';
 import ServicePage from './components/ServicePage';
+import PackagesPage from './components/PackagesPage';
 
 export const PageTransitionContext = createContext();
 
@@ -102,6 +103,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<FlowArtDefaultDemo />} />
           <Route path="/services/:serviceId" element={<ServicePage />} />
+          <Route path="/packages" element={<PackagesPage />} />
           {/* Fallback route */}
           <Route path="*" element={<FlowArtDefaultDemo />} />
         </Routes>
